@@ -10,7 +10,7 @@ App({
     logs.unshift(Date.now())
     wx.setStorageSync('logs', logs)
     // 登录
-    that.login();
+    // that.login();
   },
   login: function () {
     console.log('start login...');
