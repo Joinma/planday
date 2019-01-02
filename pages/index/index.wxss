@@ -1,4 +1,19 @@
 /**index.wxss**/
+
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
+}
+
+.top {
+  width: 100%;
+  background-color: #483C32;
+}
+
 .userinfo {
   display: flex;
   flex-direction: column;
@@ -8,7 +23,7 @@
 .userinfo-avatar {
   width: 128rpx;
   height: 128rpx;
-  margin: 20rpx;
+  margin: 40rpx 20rpx 20rpx 20rpx;
   border-radius: 50%;
 }
 
@@ -17,5 +32,18 @@
 }
 
 .usermotto {
-  margin-top: 200px;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  color: #aaa;
+  text-align: center;
+}
+/* tab */
+.iconInnerList {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.iconInnerImg {
+  width: 20%;
+  height: 150rpx;
 }
