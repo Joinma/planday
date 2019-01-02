@@ -37,3 +37,13 @@
   color: #aaa;
   text-align: center;
 }
+/* tab */
+.iconInnerList {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+}
+.iconInnerImg {
+  width: 20%;
+  height: 150rpx;
+}

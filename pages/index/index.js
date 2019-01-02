@@ -5,7 +5,25 @@ const app = getApp()
 Page({
   data: {
     userInfo: {},
-    hasUserInfo: false
+    hasUserInfo: false,
+    iconList: [
+      [
+        "/images/TV.png",
+        "/images/biji.png",
+        "/images/bofang.png",
+        "/images/chabei.png",
+        "/images/dianshijiTV.png",
+        "/images/huatong.png",
+        "/images/luzhi.png",
+        "/images/qiche.png",
+        "/images/tupian.png",
+        "/images/xing.png"
+      ],
+      [
+        "/images/xing.png",
+        "/images/xing.png"
+      ]
+    ]
   },
   onLoad: function () {
     let that = this;
