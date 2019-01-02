@@ -9,5 +9,6 @@
       </block>
     </view>
     <view class='usermotto'>这是一句很有道理的话</view>
+    <view>这是一句话</view>
   </view>
 </view>
