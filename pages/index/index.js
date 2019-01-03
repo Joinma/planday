@@ -5,7 +5,8 @@ const app = getApp()
 Page({
   data: {
     userInfo: {},
-    hasUserInfo: false
+    hasUserInfo: false,
+    
   },
   onLoad: function () {
     let that = this;
