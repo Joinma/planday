@@ -5,8 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    iconList: [
-      [
+    resIconList: [
         {
           "imgUrl": "/images/TV.png",
           "name":"tvShow",
@@ -57,7 +56,6 @@ Page({
           "name": "添加",
           "type":"add"
         }
-      ]
     ],
     interval:2000,
     iconItem: {
@@ -71,7 +69,25 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    // deal with res data
+    let resIconList = this.data.resIconList
+    let listIndex = 0
+    const listNum = 10
+    let listInnerArray = []          
+    resIconList.forEach(function(value,index){
+      if (listIndex < listNum) {
+        listIndex +=1
+        listInnerArray.push(value)
+        // resIconList.push(listInnerArray)
+      } else {
+        listIndex = 0
+        resIconList.push(listInnerArray)
+        listInnerArray = []
+      }
+    })
+    console.log("listInnerArray", listInnerArray)
+    
+    console.log("resIconList", resIconList)
   },
 
   /**
