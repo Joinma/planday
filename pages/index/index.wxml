@@ -12,15 +12,3 @@
     <view>这是一句话</view>
   </view>
 </view>
- <swiper class="iconContainer"  
-        interval="{{interval}}">
-    <block wx:for="{{iconList}}" wx:key="{{index}}">
-      <swiper-item  bindtap="goTogeDetail" data-id="{{item.id}}">
-        <view class='iconInnerList'>
-          <block wx:for="{{iconList[index]}}" wx:key="">
-            <image class="iconInnerImg" src="{{item}}"></image>
-          </block>
-        </view>
-      </swiper-item>
-    </block>
-  </swiper>

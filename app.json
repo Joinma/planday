@@ -1,8 +1,8 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/logs/logs",
-    "pages/me/me"
+    "pages/me/me",
+    "pages/record/record"
   ],
   "window": {
     "backgroundTextStyle": "light",
@@ -19,7 +19,7 @@
         "selectedIconPath": "images/home_selected.png"
       },
       {
-        "pagePath": "pages/index/index",
+        "pagePath": "pages/record/record",
         "text": "记账",
         "iconPath": "images/book.png",
         "selectedIconPath": "images/book_selected.png"
