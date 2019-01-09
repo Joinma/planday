@@ -1,6 +1,6 @@
 // pages/me/me.js
-import {ClassicModel} from '../../models/classic.js'
-let classicModel = new ClassicModel();
+// import {ClassicModel} from '../../models/classic.js'
+// let classicModel = new ClassicModel();
 Page({
 
   /**
@@ -14,10 +14,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    classicModel.getLatest()
-      .then(res =>{
-        console.log('res',res)
-      })
+    // classicModel.getLatest()
+    //   .then(res =>{
+    //     console.log('res',res)
+    //   })
   },
 
   /**
