@@ -1,4 +1,4 @@
-const Promise = require("promise.js");
+// const Promise = require("promise.js");
 let requestParams = {
   url: '',
   data: {},

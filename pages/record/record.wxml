@@ -1,19 +1,2 @@
 <!--pages/record/record.wxml-->
- <swiper class="iconContainer"  
-        interval="{{interval}}"
-        indicator-dots
-        circular
-        indicator-active-color="#3271b0">
-    <block wx:for="{{iconList}}" wx:key="{{index}}">
-      <swiper-item  data-id="{{item.id}}">
-        <view class='iconInnerList'>
-          <block wx:for="{{iconList[index]}}" wx:key="">
-          <view class='iconInnerItem' bindtap='recordOrAdd' data-info="{{item.type}}-{{index}}">
-            <image mode='widthFix' class="iconInnerImg" src="{{item.imgUrl}}"></image>
-            <view class='iconInnerName'>{{item.name}}</view>
-          </view>
-          </block>
-        </view>
-      </swiper-item>
-    </block>
-  </swiper>
+<v-orderTab resIconList="{{resIconList}}" pageNum="{{pageTabNum}}"></v-orderTab>
