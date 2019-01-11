@@ -7,6 +7,6 @@ class ClassicModel extends HTTP {
       url: 'classic/latest',
     })
   }
-}
 
+}
 export { ClassicModel }

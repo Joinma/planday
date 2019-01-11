@@ -18,6 +18,7 @@ class ClassicModel extends HTTP {
       url:''
     })
   }
+
 }
 
 export { ClassicModel }

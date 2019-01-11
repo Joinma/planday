@@ -1,23 +1,15 @@
 //app.js
-const Api = require('/utils/api.js')
-// const Http = require('/utils/http.js')
 import {
   HTTP
 } from './utils/http-p.js'
 const http_p = new HTTP()
 App({
   onLaunch: function() {
-    let that = this;
-    // 展示本地存储能力
-    var logs = wx.getStorageSync('logs') || []
-    logs.unshift(Date.now())
-    wx.setStorageSync('logs', logs)
     // 登录
-    that.login();
+    this.login();
   },
   login: function() {
     console.log('start login...');
-    let that = this;
     wx.login({
       success: res => {
         // 发送 res.code 到后台换取 openId, sessionKey, unionId
@@ -27,17 +19,11 @@ App({
   },
   getLoginParamer(res) {
     http_p.request({
-      url: '/api/users/login?code=' + res.code,
+      url: 'users/login?code=' + res.code,
     }).then(res => {
+      console.log("loginRes信息", res.data)
       let user = res.data;
-      console.log("res", res.data)
-      if (!user.avatarUrl) {
-        // 没有头像，第一次
-        this.updateUserInfo(user);
-      } else {
-        this.globalData.userInfo = user.avatarUrl;
-      }
-
+      this.checkPowerStatus(user)
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
       if (this.userInfoReadyCallback) {
@@ -45,6 +31,16 @@ App({
       }
       console.log("拿到数据了", JSON.stringify(res))
     })
+  },
+  // 判断是否授权
+  // 获取用户信息并判断是否相同 并更新
+  checkPowerStatus(user) {
+    if (!user.avatarUrl) {
+      // 没有头像，第一次
+      this.updateUserInfo(user);
+    } else {
+      this.globalData.userInfo = user.avatarUrl;
+    }
   },
   updateUserInfo: function(user) {
     console.log('start update user...');
@@ -73,6 +69,8 @@ App({
               console.log('get userInfo fail: ' + JSON.stringify(err));
             }
           })
+        } else {
+          // 授权
         }
       }
     })

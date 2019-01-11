@@ -1,6 +1,4 @@
 // pages/me/me.js
-// import {ClassicModel} from '../../models/classic.js'
-// let classicModel = new ClassicModel();
 Page({
 
   /**
