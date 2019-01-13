@@ -1,5 +1,6 @@
 {
   "usingComponents":{
-    "v-orderTab":"/components/orderTab/index"
+    "v-orderTab":"/components/orderTab/index",
+    "v-numbox": "/components/numBox/index"
   }
 }

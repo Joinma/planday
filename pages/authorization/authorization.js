@@ -17,7 +17,10 @@ Page({
   onLoad: function (options) {
     wx.hideShareMenu();
     console.log("start plan")
-    this.checkUserInfo()
+    // this.checkUserInfo()
+    wx.switchTab({
+      url: '/pages/index/index',
+    })
   },
   checkUserInfo () {
     if (app.globalData.userInfo) {

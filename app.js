@@ -24,7 +24,7 @@ App({
       isLoading: false
     }).then(res => {
       console.log("get login data:", res.data)
-      this.checkPowerStatus();
+      // this.checkPowerStatus();
     })
   },
   // 判断是否授权

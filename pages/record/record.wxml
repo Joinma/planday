@@ -1,2 +1,3 @@
 <!--pages/record/record.wxml-->
 <v-orderTab resIconList="{{resIconList}}" pageNum="{{pageTabNum}}"></v-orderTab>
+<v-numbox></v-numbox>

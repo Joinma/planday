@@ -2,6 +2,7 @@ const hostUrl = 'http://planday.getcy.cn/api/'
 const imageUrl = 'http://image.getcy.cn/api'
 const tip = {
   1: '抱歉，出现一个错误了', //作为默认的错误提示
+  404:'请求丢失了~',
   502: '服务异常',
 }
 // 封装 http请求
