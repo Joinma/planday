@@ -1,9 +1,9 @@
-// pages/authorization/authorization.js
 const app = getApp()
 import {
   HTTP
 } from '../../utils/http.js'
 const http = new HTTP()
+
 Page({
 
   /**
@@ -20,7 +20,6 @@ Page({
    */
   onLoad: function(options) {
     wx.hideShareMenu();
-    console.log("start plan")
     if (app.globalData.userInfo) {
       this.checkPowerStatus()
     } else {
@@ -45,7 +44,6 @@ Page({
             success: res => {
               let appUserInfo = app.globalData.userInfo
               let resUserInfo = res.userInfo
-              console.log("liori", appUserInfo.nickName, resUserInfo.nickName)
               let isNeedToUpdate = appUserInfo.nickName !== resUserInfo.nickName || appUserInfo.avatarUrl !== resUserInfo.avatarUrl
               if (isNeedToUpdate) {
                 let user = {};
@@ -55,14 +53,10 @@ Page({
                 // 更新用户信息
                 this.updateUserInfo(user).then(res => {
                   app.globalData.userInfo = res.data.data;
-                  wx.switchTab({
-                    url: '/pages/index/index',
-                  })
+                  this.redirectToIndex();
                 })
               } else {
-                wx.switchTab({
-                  url: '/pages/index/index',
-                })
+                this.redirectToIndex();
               }
             }
           })
@@ -77,7 +71,7 @@ Page({
   },
   updateUserInfo: function(user) {
     console.log('start update user...');
-    http.request({
+    return http.request({
       url: 'users/update/' + user.id,
       data: user,
       method: 'PUT',
@@ -90,6 +84,11 @@ Page({
       userInfo: e.detail.userInfo,
       hasUserInfo: true
     })
+    wx.switchTab({
+      url: '/pages/index/index',
+    })
+  },
+  redirectToIndex: function() {
     wx.switchTab({
       url: '/pages/index/index',
     })
