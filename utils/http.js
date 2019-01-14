@@ -1,5 +1,5 @@
-const hostUrl = 'http://192.168.0.157:5314/api/'
-// const hostUrl = 'http://planday.getcy.cn/api/'
+// const hostUrl = 'http://192.168.0.157:5314/api/'
+const hostUrl = 'http://planday.getcy.cn/api/'
 const imageUrl = 'http://image.getcy.cn/api'
 
 // 封装 http 请求
@@ -15,7 +15,7 @@ class HTTP {
       this.selfRequest(url, resolve, reject, data, method, imgUrl, isLoading)
     })
   }
-
+  
   //http 请求类, 当noRefech为true时，不做未授权重试机制
   selfRequest(url, resolve, reject, data = {}, method = 'GET', imgUrl, isLoading) {
     if (isLoading) {
