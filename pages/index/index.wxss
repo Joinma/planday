@@ -11,7 +11,7 @@
 
 .top {
   width: 100%;
-  background-color: #483C32;
+  background-color: #f3f9f1;
 }
 
 .userinfo {
@@ -38,3 +38,22 @@
   text-align: center;
 }
 
+.planTags {
+  /* width: 100%; */
+  display: flex;
+  flex-direction: column;  
+  justify-content: center;
+  align-items: flex-start;
+  padding-top: 100rpx;
+}
+
+.planTags > view {
+  text-decoration: line-through;
+  /* width: 200rpx; */
+  padding:10rpx 20rpx;
+  margin: 15rpx;
+  border: 1rpx solid #fff;
+  background-color: #aaa;
+  color: #fff;
+  border-radius: 20rpx;  
+}

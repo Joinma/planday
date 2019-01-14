@@ -10,3 +10,17 @@
     <view class='usermotto'>这是一句很有道理的话</view>
   </view>
 </view>
+<view class="planTags">
+  <view>
+    好好睡觉1好好睡觉1
+  </view>
+  <view>
+    好好睡觉2好好睡觉1好好睡觉1
+  </view>
+  <view>
+    好好睡觉3
+  </view>
+  <view>
+    好好睡觉4
+  </view>
+</view>
