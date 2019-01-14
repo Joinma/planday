@@ -1,81 +1,72 @@
-// const Promise = require("promise.js");
-let requestParams = {
-  url: '',
-  data: {},
-  header: {},
-  method: '',
-  success: function (res) {
-  },
-  fail: function (err) {
-  },
-  complete: function () {
-  }
-}
+const hostUrl = 'http://192.168.0.157:5314/api/'
+// const hostUrl = 'http://planday.getcy.cn/api/'
+const imageUrl = 'http://image.getcy.cn/api'
 
-function request(requestParams, isLoading = true) {
-  return new Promise((resolve, reject) => {
-    wx.getNetworkType({
-      success: function (res) {
-        // 返回网络类型, 有效值：
-        // wifi/2g/3g/4g/unknown(Android下不常见的网络类型)/none(无网络)
-        var networkType = res.networkType
-        console.log("networkType:" + networkType)
-        if (networkType == 'none') {
-          wx.redirectTo({
-            url: '/pages/network/network',
-          })
-        }
-      }
+// 封装 http 请求
+class HTTP {
+  request({
+    url,
+    data = {},
+    method = 'GET',
+    imgUrl = false,
+    isLoading = true
+  }) {
+    return new Promise((resolve, reject) => {
+      this.selfRequest(url, resolve, reject, data, method, imgUrl, isLoading)
     })
-    wx.onNetworkStatusChange(function (res) {
-      console.log("isConnected:" + res.isConnected)
-    });
-    var data = requestParams.data;
-    var url = requestParams.url;
-    var method = requestParams.method;
-    var header = requestParams.header;
+  }
 
-    if (!header) {
-      header = { 'content-type': 'application/json;charset=UTF-8' };
-    } else {
-    }
+  //http 请求类, 当noRefech为true时，不做未授权重试机制
+  selfRequest(url, resolve, reject, data = {}, method = 'GET', imgUrl, isLoading) {
     if (isLoading) {
       wx.showLoading({
         title: '加载中...',
       })
     }
+    const baseUrl = imgUrl ? imageUrl : hostUrl
     wx.request({
-      url: url,
+      url: baseUrl + url,
       data: data,
-      header: header,
       method: method,
-      success: function (res) {
-        wx.hideLoading();
-        if (res.statusCode == 200 || res.statusCode == 201) {
-          resolve(res);
-          requestParams.success(res)
+      header: {
+        'content-type': 'application/json'
+      },
+      success: (res) => {
+        if (isLoading) {
+          wx.hideLoading();
+        }
+        // 判断以2（2xx)开头的状态码为正确
+        // 异常不要返回到回调中，就在request中处理，记录日志并showToast一个统一的错误即可
+        var code = res.statusCode.toString();
+        if (code.startsWith('2')) {
+          resolve(res)
         } else {
-          if (res.statusCode == 502) {
-            console.log("服务异常");
-            wx.redirectTo({
-              url: '/pages/service/service',
-            })
-          } else {
-            reject(res);
-            requestParams.fail(res);
-          }
+          this.showRequestError(res.data);
+          reject(res)
         }
       },
-      fail: function (err) {
-        wx.hideLoading();
-        reject(err);
-        requestParams.fail(err);
-      },
-      complete: function () {}
+      fail: (err) => {
+        if (isLoading) {
+          wx.hideLoading();
+        }
+        // 处理后台返回 错误信息
+        this.showRequestError(err.data)
+        reject(err)
+      }
     });
-  });
-}
+  }
 
-module.exports = {
-  request: request
-}
+  showRequestError(err) {
+    console.log("err", err)
+    let err_text = err.message
+    wx.showToast({
+      title: err_text,
+      icon: 'none',
+      duration: 2000
+    })
+  }
+};
+
+export {
+  HTTP
+};
