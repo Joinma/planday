@@ -2,13 +2,11 @@
 <view class="container">
   <view class='top'>
     <view class="userinfo">
-      <button wx:if="{{!hasUserInfo}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo"> 获取头像昵称 </button>
-      <block wx:else>
+      <block>
         <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
         <text class="userinfo-nickname">{{userInfo.nickName}}</text>
       </block>
     </view>
     <view class='usermotto'>这是一句很有道理的话</view>
-    <view>这是一句话</view>
   </view>
 </view>

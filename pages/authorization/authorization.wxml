@@ -6,5 +6,5 @@
     <span>Pocket</span>
     <span>Plan</span>
   </view>
-  <button  wx:if ='{{hasUserInfo}}'  class='innerBtn' open-type="getUserInfo" bindgetuserinfo='authorize'>点击前往</button>
+  <button  wx:if ='{{!hasUserInfo}}'  class='innerBtn' open-type="getUserInfo" bindgetuserinfo='authorize'>点击前往</button>
 </view>

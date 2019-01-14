@@ -1,7 +1,9 @@
 //app.js
+const Api = require('./utils/api.js')
+const Http = require('./utils/http.js')
 import {
   HTTP
-} from './utils/http-p.js'
+} from './utils/http.js'
 const http_p = new HTTP()
 App({
   onLaunch: function() {
@@ -24,75 +26,17 @@ App({
       isLoading: false
     }).then(res => {
       console.log("get login data:", res.data)
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况
+      this.globalData.userInfo = res.data.data
+      if (this.userInfoReadyCallback) {
+        this.userInfoReadyCallback(res)
+      }
       // this.checkPowerStatus();
+      // this.updateUserInfo(res)
     })
   },
-  // 判断是否授权
-  // 获取用户信息并判断是否相同 并更新
-  checkPowerStatus() {
-    // 可以通过 wx.getSetting 先查询一下用户是否授权了 "scope.userInfo" 这个 scope
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']) {
-          // 已经授权，可以直接调用 getUserInfo 获取头像昵称，不会弹框
-          wx.getUserInfo({
-            success: res => {
-              // 可以将 res 发送给后台解码出 unionId
-              this.globalData.userInfo = res.userInfo
-              console.log("getUserInfo的基本信息", JSON.stringify(res.userInfo))
 
-              // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-              // 所以此处加入 callback 以防止这种情况
-              if (this.userInfoReadyCallback) {
-                this.userInfoReadyCallback(res)
-              }
-            }
-          })
-        }
-      }
-    })
-
-
-    // if (!user.avatarUrl) {
-    //   // 没有头像，第一次
-    //   this.updateUserInfo(user);
-    // } else {
-    //   this.globalData.userInfo = user.avatarUrl;
-    // }
-  },
-  updateUserInfo: function(user) {
-    console.log('start update user...');
-    // 获取用户信息
-    wx.getSetting({
-      success: res => {
-        console.log("getSetting", res)
-        if (res.authSetting['scope.userInfo']) {
-          wx.getUserInfo({
-            success: res => {
-              // 可以将 res 发送给后台解码出 unionId
-              let userInfo = res.userInfo;
-              user.nickName = userInfo.nickName;
-              user.avatarUrl = userInfo.avatarUrl;
-              // 发送 res.code 到后台换取 openId, sessionKey, unionId
-              let requestParams = {
-                url: Api.api.users + '/update/' + user.id,
-                data: user,
-                method: 'PUT',
-                success(res) {},
-                fail(err) {}
-              }
-              return Http.request(requestParams);
-            },
-            fail: function(err) {
-              console.log('get userInfo fail: ' + JSON.stringify(err));
-            }
-          })
-        } else {
-          // 授权
-        }
-      }
-    })
-  },
   updataApp: function() { //版本更新
     if (wx.canIUse('getUpdateManager')) {
       const updateManager = wx.getUpdateManager()
