@@ -1,12 +1,13 @@
 {
   "pages": [
+    "pages/authorization/authorization",
     "pages/index/index",
     "pages/me/me",
     "pages/record/record"
   ],
   "window": {
     "backgroundTextStyle": "light",
-    "navigationBarBackgroundColor": "#fff",
+    "navigationBarBackgroundColor": "#ffffff",
     "navigationBarTitleText": "planday",
     "navigationBarTextStyle": "black"
   },
@@ -21,8 +22,8 @@
       {
         "pagePath": "pages/record/record",
         "text": "记账",
-        "iconPath": "images/book.png",
-        "selectedIconPath": "images/book_selected.png"
+        "iconPath": "images/order.png",
+        "selectedIconPath": "images/order_selected.png"
       },
       {
         "pagePath": "pages/me/me",
@@ -30,6 +31,8 @@
         "iconPath": "images/me.png",
         "selectedIconPath": "images/me_selected.png"
       }
-    ]
+    ],
+    "color": "#8a8a8a",
+    "selectedColor": "#d81e06"
   }
 }

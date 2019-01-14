@@ -1,0 +1,34 @@
+<!--components/numBox/index.wxml-->
+<view class='numContainer'>
+  <view class='header fz45'>
+    <view>{{name}}</view>
+    <view class='price'>￥{{price}}</view>
+  </view>
+  <view class='title fz30'>
+    <view class='dateBox'>
+      <view>{{year}}</view>
+      <view>{{date}}</view>
+    </view>
+    <image src='/images/editIcon.png' class='editIcon'></image>
+  </view>
+  <view class='numberBox'>
+    <button class='numberItem' data-index='1' bindtap='numberInput'>1</button>
+    <button class='numberItem' data-index='2' bindtap='numberInput'>2</button>
+    <button class='numberItem' data-index='3' bindtap='numberInput'>3</button>
+    <button class='numberItem' data-type='delete' bindtap='editInput'>←</button>
+    <button class='numberItem' data-index='4' bindtap='numberInput'>4</button>
+    <button class='numberItem' data-index='5' bindtap='numberInput'>5</button>
+    <button class='numberItem' data-index='6' bindtap='numberInput'>6</button>
+    <button class='numberItem' data-type='add' bindtap='editInput'>+</button>
+    <button class='numberItem' data-index='7' bindtap='numberInput'>7</button>
+    <button class='numberItem' data-index='8' bindtap='numberInput'>8</button>
+    <button class='numberItem' data-index='9' bindtap='numberInput'>9</button>
+    <button class='numberItem' data-type='minus' bindtap='editInput'>-</button>
+    <button class='numberItem' data-type='zero' bindtap='editInput'>清零</button>
+    <button class='numberItem' data-index='0' bindtap='numberInput'>0</button>
+    <button class='numberItem' data-index='.' bindtap='numberInput'>.</button>
+    <button class='numberItem' data-type='comfirm' bindtap='editInput'>
+      <icon type="success_no_circle" color="#000000" size="20" />
+    </button>
+  </view>
+</view>
