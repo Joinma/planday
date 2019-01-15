@@ -2,6 +2,7 @@
   "usingComponents":{
     "v-orderTab":"/components/orderTab/index",
     "v-numbox": "/components/numBox/index",
-    "v-btmModel": "/components/btmModel/index"
+    "v-btmModel": "/components/btmModel/index",
+    "v-calendar":"/components/calendar/index"
   }
 }

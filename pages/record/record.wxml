@@ -1,7 +1,6 @@
 <!--pages/record/record.wxml-->
 <v-orderTab resIconList="{{resIconList}}" pageNum="{{pageTabNum}}"></v-orderTab>
-<v-numbox ></v-numbox>
+<v-numbox bind:ontapDate="tapDate"></v-numbox>
 <v-btmModel showModal="{{isShowModal}}">
-  <view>弹窗内容</view>
-  <view>哈哈哈哈哈；1个和尚;2个和尚</view>
+  <v-calendar></v-calendar>
 </v-btmModel>

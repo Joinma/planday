@@ -26,7 +26,7 @@
     <button class='numberItem' data-type='minus' bindtap='editInput'>-</button>
     <button class='numberItem' data-type='zero' bindtap='editInput'>清零</button>
     <button class='numberItem' data-index='0' bindtap='numberInput'>0</button>
-    <button class='numberItem' data-index='.' bindtap='numberInput'>.</button>
+    <button class='numberItem' bindtap='decimalInput'>.</button>
     <button class='numberItem' data-type='comfirm' bindtap='editInput'>
       <icon type="success_no_circle" color="#000000" size="20" />
     </button>
