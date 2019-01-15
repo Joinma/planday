@@ -1,0 +1,4 @@
+<view class="modalMask" bindtap="hideModal" catchtouchmove="preventTouchMove" wx:if="{{_showModal}}"></view>
+<view class="modalDialog {{_showModal?'modelfadeUp':''}}" wx:if="{{_showModal}}">
+  <slot></slot>
+</view>

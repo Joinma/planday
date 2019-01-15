@@ -5,7 +5,7 @@
     <view class='price'>￥{{price}}</view>
   </view>
   <view class='title fz30'>
-    <view class='dateBox'>
+    <view class='dateBox' bindtap='onTapDate'>
       <view>{{year}}</view>
       <view>{{date}}</view>
     </view>

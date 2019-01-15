@@ -66,7 +66,7 @@ Component({
         this.data.isFirstInput = true
       }
       return newPrice
-    }
+    },
   },
 
 })
