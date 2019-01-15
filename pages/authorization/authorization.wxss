@@ -1,6 +1,6 @@
 /* pages/authorization/authorization.wxss */
 .container {
-  margin-top: 150rpx;
+  margin-top: 180rpx;
 }
 .homeIcon {
   width: 130rpx;

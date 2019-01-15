@@ -1,9 +1,8 @@
 //app.js
-const Api = require('./utils/api.js')
 import {
-  HTTP
-} from './utils/http.js'
-const http = new HTTP()
+  UserModel
+} from './models/user.js'
+const userModel = new UserModel()
 
 App({
   onLaunch: function() {
@@ -21,19 +20,16 @@ App({
     })
   },
   userLogin(code) {
-    http.request({
-      url: 'users/login?code=' + code,
-      isLoading: false
-    }).then(res => {
-      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
-      // 所以此处加入 callback 以防止这种情况
+    userModel.getUserLogin(code).then(res => {
       this.globalData.userInfo = res.data.data
+
+      // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
+      // 所以此处加入 callback 以防止这种情况 结合授权页
       if (this.userInfoReadyCallback) {
         this.userInfoReadyCallback(res)
       }
     })
   },
-
   //版本更新
   updataApp: function() {
     if (wx.canIUse('getUpdateManager')) {

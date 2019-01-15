@@ -1,7 +1,7 @@
 let api = {};
 
-api.baseUrl = 'http://192.168.0.157:5314';
-// api.hostUrl = 'http://planday.getcy.cn';
+// api.baseUrl = 'http://192.168.0.157:5314';
+api.hostUrl = 'http://planday.getcy.cn';
 
 api.imageUrl = 'http://image.getcy.cn';
 
