@@ -30,7 +30,9 @@ Component({
    */
   data: {
     _price: 0,
-    isFirstInput: false
+    isFirstInput: false,
+    resultPrice: 0,
+    numEditType: 0 // 0 表示没有点击加号
   },
   attached() {
     this.setData({
@@ -45,12 +47,23 @@ Component({
       //数字键 点击数值,点及价格的显示
       let numValue = e.currentTarget.dataset.index
       let price = this.data.price
+      let numEditType = this.data.numEditType
+      // 假如点击了 +或- 触发的事件
+      console.log("numValue", numValue, "price", price)
+      if (numEditType == 1) {
+        this.setData({
+          price: numValue,
+          numEditType: 0
+        })
+        return
+      }
       // 保留两位小数 并且最多位数为12
       let decimalIndex = price.indexOf('.')
       let returnResult = decimalIndex != -1 && price.substring(decimalIndex).length > 2 || price.length > 12
       if (returnResult) {
         return
       }
+
       let newPrice = this.checkNumber(newPrice, numValue)
       // console.log("newpprice", this.checkNumber(newPrice, numValue))
       this.setData({
@@ -76,6 +89,16 @@ Component({
     decimalInput() {
       const value = '.'
       let price = this.data.price
+      let numEditType = this.data.numEditType
+      // 假如点击了 +或- 触发的事件
+      console.log("price", price)
+      if (numEditType == 1) {
+        this.setData({
+          price: '0.',
+          numEditType: 0
+        })
+        return
+      }
       if (price.indexOf(value) == -1) {
         // 没有点 可以添加
         this.setData({
@@ -88,6 +111,7 @@ Component({
     editInput(e) {
       let edit = e.currentTarget.dataset.type
       let price = this.data.price
+      console.log("price", price, typeof price, price.length)
       switch (edit) {
         case 'delete':
           let priceLen = price.length
@@ -101,8 +125,30 @@ Component({
         case 'zero':
           this.setData({
             price: '0',
+            resultPrice: '0',
             isFirstInput: false
           })
+          break;
+        case 'add':
+          console.log("这样也来", edit)
+          let resultPrice = parseFloat(this.data.resultPrice)
+          let numPrice = parseFloat(price)
+          let numEditType = this.data.numEditType
+          console.log("resultPrice", resultPrice, "numPrice", numPrice)
+          if (numEditType == 0) {
+            resultPrice = resultPrice + numPrice
+            this.setData({
+              price: resultPrice,
+              resultPrice: resultPrice,
+              numEditType: 1
+            })
+          }
+          break;
+        case "minus":
+
+          break;
+        default:
+          console.log("都没有匹配上")
           break;
       }
     },
