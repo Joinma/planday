@@ -50,7 +50,7 @@ Component({
       let numEditType = this.data.numEditType
       // 假如点击了 +或- 触发的事件
       console.log("numValue", numValue, "price", price)
-      if (numEditType == 1) {
+      if (numEditType == 1 || numEditType==2) {
         this.setData({
           price: numValue,
           numEditType: 0
@@ -111,7 +111,7 @@ Component({
     editInput(e) {
       let edit = e.currentTarget.dataset.type
       let price = this.data.price
-      console.log("price", price, typeof price, price.length)
+      // console.log("price", price, typeof price, price.length)
       switch (edit) {
         case 'delete':
           let priceLen = price.length
@@ -130,12 +130,11 @@ Component({
           })
           break;
         case 'add':
-          console.log("这样也来", edit)
           let resultPrice = parseFloat(this.data.resultPrice)
           let numPrice = parseFloat(price)
           let numEditType = this.data.numEditType
-          console.log("resultPrice", resultPrice, "numPrice", numPrice)
-          if (numEditType == 0) {
+          console.log("addresultPrice111", resultPrice, "addnumPrice111", numPrice)
+          if (numEditType == 0 || numEditType == 2) {
             resultPrice = resultPrice + numPrice
             this.setData({
               price: resultPrice,
@@ -143,9 +142,19 @@ Component({
               numEditType: 1
             })
           }
+          console.log("addresultPrice", resultPrice, "addnumPrice", numPrice)
           break;
         case "minus":
-
+          console.log("resultPrice111", resultPrice, "numPrice111", numPrice)
+          if (numEditType == 0 || numEditType == 1) {
+            resultPrice = resultPrice - numPrice
+            this.setData({
+              price: resultPrice,
+              resultPrice: resultPrice,
+              numEditType: 2
+            })
+          }
+          console.log("resultPrice", resultPrice, "numPrice", numPrice)
           break;
         default:
           console.log("都没有匹配上")
