@@ -2,7 +2,8 @@
 <view class='numContainer'>
   <view class='header fz45'>
     <view>{{name}}</view>
-    <view class='price'>￥{{price}}</view>
+    <view class='price'wx:if="{{numEditType==0}}">￥{{price}}</view>
+    <view class='price' wx:else>￥{{resultPrice}}</view>
   </view>
   <view class='title fz30'>
     <view class='dateBox' bindtap='onTapDate'>

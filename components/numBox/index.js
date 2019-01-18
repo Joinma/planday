@@ -32,7 +32,8 @@ Component({
     _price: 0,
     isFirstInput: false,
     resultPrice: 0,
-    numEditType: 0 // 0 表示没有点击加号
+    numEditType: 0, // 0 表示没有点击加号
+    operateType: 0 // 上一次进行的操作记录
   },
   attached() {
     this.setData({
@@ -50,7 +51,7 @@ Component({
       let numEditType = this.data.numEditType
       // 假如点击了 +或- 触发的事件
       console.log("numValue", numValue, "price", price)
-      if (numEditType == 1 || numEditType==2) {
+      if (numEditType == 1 || numEditType == 2) {
         this.setData({
           price: numValue,
           numEditType: 0
@@ -112,6 +113,11 @@ Component({
       let edit = e.currentTarget.dataset.type
       let price = this.data.price
       // console.log("price", price, typeof price, price.length)
+
+      let resultPrice = parseFloat(this.data.resultPrice)
+      let numPrice = parseFloat(price)
+      let numEditType = this.data.numEditType
+      let operateType = this.data.operateType
       switch (edit) {
         case 'delete':
           let priceLen = price.length
@@ -130,31 +136,65 @@ Component({
           })
           break;
         case 'add':
-          let resultPrice = parseFloat(this.data.resultPrice)
-          let numPrice = parseFloat(price)
-          let numEditType = this.data.numEditType
-          console.log("addresultPrice111", resultPrice, "addnumPrice111", numPrice)
+          // let resultPrice = parseFloat(this.data.resultPrice)
+          // let numPrice = parseFloat(price)
+          // let numEditType = this.data.numEditType
+          console.log("addresultPrice111", resultPrice, "addnumPrice111", operateType)
           if (numEditType == 0 || numEditType == 2) {
-            resultPrice = resultPrice + numPrice
+            if (operateType == 2) {
+              resultPrice = resultPrice - numPrice
+            } else {
+              resultPrice = resultPrice + numPrice
+            }
             this.setData({
-              price: resultPrice,
+              price: 0,
               resultPrice: resultPrice,
-              numEditType: 1
+              numEditType: 1,
+              operateType: 1
             })
           }
           console.log("addresultPrice", resultPrice, "addnumPrice", numPrice)
           break;
         case "minus":
-          console.log("resultPrice111", resultPrice, "numPrice111", numPrice)
+          console.log("resultPrice111", resultPrice, "numPrice111", numPrice, "numEditType111", numEditType)
           if (numEditType == 0 || numEditType == 1) {
-            resultPrice = resultPrice - numPrice
-            this.setData({
-              price: resultPrice,
-              resultPrice: resultPrice,
-              numEditType: 2
-            })
+
+            if (resultPrice != 0) {
+              resultPrice = operateType == 1 ? resultPrice + numPrice : resultPrice - numPrice
+              // if (operateType == 1) {
+              //   resultPrice = resultPrice + numPrice
+              // } else {
+              //   resultPrice = resultPrice - numPrice
+              // }
+              this.setData({
+                price: 0,
+                resultPrice: resultPrice,
+                numEditType: 2,
+                operateType: 2
+              })
+            } else {
+              this.setData({
+                price: 0,
+                resultPrice: numPrice,
+                numEditType: 2,
+                operateType: 2
+              })
+            }
           }
           console.log("resultPrice", resultPrice, "numPrice", numPrice)
+          break;
+        case 'comfirm':
+          if (operateType == 1) {
+            resultPrice = resultPrice + numPrice
+          } else {
+            resultPrice = resultPrice - numPrice
+          }
+          this.setData({
+            price: 0,
+            resultPrice: resultPrice,
+            // numEditType: 3
+          })
+
           break;
         default:
           console.log("都没有匹配上")
