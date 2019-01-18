@@ -1,0 +1,27 @@
+/* pages/authorization/authorization.wxss */
+.container {
+  margin-top: 180rpx;
+}
+.homeIcon {
+  width: 130rpx;
+  height: 130rpx;
+}
+.headerText {
+  margin-top: 30rpx;
+}
+.headerText span:nth-child(1) {
+  margin-right: 20rpx;
+}
+.innerBtn {
+  margin-top: 200rpx;
+  width: 240rpx;
+  height: 90rpx;
+  line-height: 90rpx;
+  font-size: 30rpx;
+  border-radius: 14rpx;
+  color: #ffffff;
+  background-color: #2d78f2;
+}
+.innerBtn::after {
+  border:none;
+}

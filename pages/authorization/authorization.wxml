@@ -1,0 +1,10 @@
+<!--pages/authorization/authorization.wxml-->
+<!-- 授权 -->
+<view class='container'>
+  <image src='/images/homeIcon.png' class='homeIcon'></image>
+  <view class='headerText'>
+    <span>Pocket</span>
+    <span>Plan</span>
+  </view>
+  <button  wx:if ='{{!hasUserInfo}}'  class='innerBtn' open-type="getUserInfo" bindgetuserinfo='authorize'>点击前往</button>
+</view>
