@@ -9,7 +9,7 @@ App({
     console.log("app start launch...")
     wx.clearStorageSync();
     this.updataApp(); //更新版本
-    // this.login(); //登录
+    this.login(); //登录
   },
   login: function() {
     wx.login({
