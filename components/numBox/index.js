@@ -91,7 +91,7 @@ Component({
       const value = '.'
       let price = this.data.price
       let numEditType = this.data.numEditType
-      // 假如点击了 +或- 触发的事件
+      // 假如点击了 + 或 - 触发的事件
       console.log("price", price)
       if (numEditType == 1) {
         this.setData({
@@ -112,12 +112,13 @@ Component({
     editInput(e) {
       let edit = e.currentTarget.dataset.type
       let price = this.data.price
-      // console.log("price", price, typeof price, price.length)
 
       let resultPrice = parseFloat(this.data.resultPrice)
       let numPrice = parseFloat(price)
       let numEditType = this.data.numEditType
       let operateType = this.data.operateType
+
+      console.log('resultPrice: ', resultPrice, 'numPrice: ', numPrice, 'numEditType: ', numEditType, 'operateType: ', operateType)
       switch (edit) {
         case 'delete':
           let priceLen = price.length
@@ -136,52 +137,28 @@ Component({
           })
           break;
         case 'add':
-          // let resultPrice = parseFloat(this.data.resultPrice)
-          // let numPrice = parseFloat(price)
-          // let numEditType = this.data.numEditType
-          console.log("addresultPrice111", resultPrice, "addnumPrice111", operateType)
-          if (numEditType == 0 || numEditType == 2) {
-            if (operateType == 2) {
-              resultPrice = resultPrice - numPrice
-            } else {
-              resultPrice = resultPrice + numPrice
-            }
-            this.setData({
-              price: 0,
-              resultPrice: resultPrice,
-              numEditType: 1,
-              operateType: 1
-            })
+          if (numEditType == 1) {
+            break;
           }
-          console.log("addresultPrice", resultPrice, "addnumPrice", numPrice)
+          operateType == 2 ? resultPrice = resultPrice - numPrice : resultPrice = resultPrice + numPrice
+          this.setData({
+            price: 0,
+            resultPrice: resultPrice,
+            numEditType: 1,
+            operateType: 1
+          })
           break;
         case "minus":
-          console.log("resultPrice111", resultPrice, "numPrice111", numPrice, "numEditType111", numEditType)
-          if (numEditType == 0 || numEditType == 1) {
-
-            if (resultPrice != 0) {
-              resultPrice = operateType == 1 ? resultPrice + numPrice : resultPrice - numPrice
-              // if (operateType == 1) {
-              //   resultPrice = resultPrice + numPrice
-              // } else {
-              //   resultPrice = resultPrice - numPrice
-              // }
-              this.setData({
-                price: 0,
-                resultPrice: resultPrice,
-                numEditType: 2,
-                operateType: 2
-              })
-            } else {
-              this.setData({
-                price: 0,
-                resultPrice: numPrice,
-                numEditType: 2,
-                operateType: 2
-              })
-            }
+          if (numEditType == 2) {
+            break;
           }
-          console.log("resultPrice", resultPrice, "numPrice", numPrice)
+          operateType == 0 ? resultPrice = numPrice : operateType == 1 ? resultPrice = resultPrice + numPrice : resultPrice = resultPrice - numPrice
+          this.setData({
+            price: 0,
+            resultPrice: resultPrice,
+            numEditType: 2,
+            operateType: 2
+          })
           break;
         case 'comfirm':
           if (operateType == 1) {
