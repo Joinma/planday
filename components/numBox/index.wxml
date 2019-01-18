@@ -2,10 +2,11 @@
 <view class='numContainer'>
   <view class='header fz45'>
     <view>{{name}}</view>
-    <view class='price'>￥{{price}}</view>
+    <view class='price'wx:if="{{numEditType==0}}">￥{{price}}</view>
+    <view class='price' wx:else>￥{{resultPrice}}</view>
   </view>
   <view class='title fz30'>
-    <view class='dateBox'>
+    <view class='dateBox' bindtap='onTapDate'>
       <view>{{year}}</view>
       <view>{{date}}</view>
     </view>
@@ -26,7 +27,7 @@
     <button class='numberItem' data-type='minus' bindtap='editInput'>-</button>
     <button class='numberItem' data-type='zero' bindtap='editInput'>清零</button>
     <button class='numberItem' data-index='0' bindtap='numberInput'>0</button>
-    <button class='numberItem' data-index='.' bindtap='numberInput'>.</button>
+    <button class='numberItem' bindtap='decimalInput'>.</button>
     <button class='numberItem' data-type='comfirm' bindtap='editInput'>
       <icon type="success_no_circle" color="#000000" size="20" />
     </button>

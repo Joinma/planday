@@ -46,7 +46,8 @@ Page({
         "type": "add"
       }
     ],
-    pageTabNum:10
+    pageTabNum:10,
+    isShowModal:false
   },
 
   /**
@@ -55,7 +56,11 @@ Page({
   onLoad: function(options) {
 
   },
-
+  tapDate() {
+    this.setData({
+      isShowModal: true
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

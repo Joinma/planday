@@ -1,0 +1,26 @@
+<!--components/calendar.wxml-->
+<view class="calendar">
+    <view class="flex box box-tb box-align-center">
+      <view class="calendar pink-color box box-tb">
+        <view class="top-handle fs32 box box-lr box-align-center box-pack-center">
+          <view class="prev box box-rl box-align-center" bindtap="handleCalendar" data-handle="prev">
+            <view class='rowLeft'></view>
+          </view>
+          <view class="date-area box box-lr box-align-center box-pack-center">{{cur_year || "--"}} 年 {{cur_month || "--"}} 月</view>
+          <view class="next box box-lr box-align-center" bindtap="handleCalendar" data-handle="next">
+            <view class='rowRight'></view>
+          </view>
+        </view>
+        <view class="weeks box box-lr box-pack-center box-align-center">
+          <view class="flex week fs28" wx:for="{{weeks_ch}}" wx:key="{{index}}" data-idx="{{index}}">{{item}}</view>
+        </view>
+        <view class="days box box-lr box-wrap">
+          <view wx:if="{{hasEmptyGrid}}" class="grid white-color box box-align-center box-pack-center" wx:for="{{empytGrids}}" wx:key="{{index}}" data-idx="{{index}}">
+          </view>
+          <view class="grid white-color box box-align-center box-pack-center" wx:for="{{_days}}" wx:key="{{index}}" data-idx="{{index}}">
+            <view class="day {{item.choosed ? 'border-radius pink-bg' : ''}} box box-align-center box-pack-center">{{item.day}}</view>
+          </view>
+        </view>
+      </view>
+    </view>
+  </view>

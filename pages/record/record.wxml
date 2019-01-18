@@ -1,3 +1,6 @@
 <!--pages/record/record.wxml-->
 <v-orderTab resIconList="{{resIconList}}" pageNum="{{pageTabNum}}"></v-orderTab>
-<v-numbox></v-numbox>
+<v-numbox bind:ontapDate="tapDate"></v-numbox>
+<v-btmModel showModal="{{isShowModal}}">
+  <v-calendar></v-calendar>
+</v-btmModel>

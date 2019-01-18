@@ -53,6 +53,10 @@ Component({
           listIndex = 0;
           newIconList.push(listInnerArray)
           listInnerArray = []
+          listInnerArray.push(value)
+          if (index == redPacketList.length - 1) {
+            newIconList.push(listInnerArray)
+          }
         }
       })
       this.properties.newIconList = newIconList
