@@ -11,7 +11,7 @@ class UserModel extends HTTP {
   }
   putUserInfo(user) {
     return this.request({
-      url: 'users/update/' + user.id,
+      url: 'users/update',
       data: user,
       method: 'PUT',
     })
