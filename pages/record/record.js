@@ -6,48 +6,15 @@ Page({
    */
   data: {
     resIconList: [{
-        "imgUrl": "/images/TV.png",
-        "name": "tvShow",
-        "type": "record"
-      },
-      {
-        "imgUrl": "/images/bofang.png",
-        "name": "bofang",
-        "type": "record"
-      },
-      {
-        "imgUrl": "/images/chabei.png",
-        "name": "chabei",
-        "type": "record"
-      },
-      {
-        "imgUrl": "/images/dianshijiTV.png",
-        "name": "dianshijiTV",
-        "type": "record"
-      },
-      {
-        "imgUrl": "/images/TV.png",
-        "name": "huatong",
-        "type": "record"
-      },
-      {
-        "imgUrl": "/images/xing.png",
-        "name": "xing",
-        "type": "record"
-      },
-      {
-        "imgUrl": "/images/yinle.png",
-        "name": "yingle",
-        "type": "record"
-      },
-      {
-        "imgUrl": "/images/addIcon.png",
-        "name": "添加",
-        "type": "add"
-      }
-    ],
-    pageTabNum:10,
-    isShowModal:false
+      "imgUrl": "/images/addIcon.png",
+      "name": "添加",
+      "type": "add"
+    }],
+    pageTabNum: 10,
+    isShowModal: false,
+    year: '',
+    month: '',
+    date: ''
   },
 
   /**
@@ -56,9 +23,42 @@ Page({
   onLoad: function(options) {
 
   },
-  tapDate() {
+  chooseDate() {
     this.setData({
       isShowModal: true
+    })
+  },
+  // 获取今天日期
+  getTodayDate(params) {
+    let year = params.detail.initYear
+    let month = params.detail.initMonth
+    this.setData({
+      year,
+      month,
+      date: '今天'
+    })
+  },
+  chooseCalenderDate(params) {
+    console.log("params", params.detail.date)
+    let date = params.detail.date
+    let month = this.data.month
+    date = `${month}月${date}日`
+    let self = this
+    this.setData({
+      date,
+    })
+    setTimeout(function() {
+      self.setData({
+        isShowModal: false
+      })
+    }, 300)
+  },
+  onchangeDate(params) {
+    let year = params.detail.newYear
+    let month = params.detail.newMonth
+    this.setData({
+      year,
+      month,
     })
   },
   /**

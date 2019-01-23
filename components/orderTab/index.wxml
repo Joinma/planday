@@ -7,7 +7,7 @@
     <block wx:for="{{_newIconList}}" wx:for-item ="tabItem" wx:key="{{index}}">
       <swiper-item  data-id="{{item.id}}">
         <view class='iconInnerList'>
-          <block wx:for="{{tabItem}}" wx:key="{{index}}">
+          <block wx:for="{{tabItem}}" wx:key="index">
           <view class='iconInnerItem' style='width:{{200/pageNum}}%' bindtap='recordOrAdd' data-info="{{item.type}}-{{index}}">
             <image mode='widthFix' class="iconInnerImg" src="{{item.imgUrl}}"></image>
             <view class='iconInnerName'>{{item.name}}</view>

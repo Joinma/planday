@@ -1,6 +1,6 @@
 <!--pages/record/record.wxml-->
 <v-orderTab resIconList="{{resIconList}}" pageNum="{{pageTabNum}}"></v-orderTab>
-<v-numbox bind:ontapDate="tapDate"></v-numbox>
+<v-numbox bind:ontapDate="chooseDate" year="{{year}}" date="{{date}}"></v-numbox>
 <v-btmModel showModal="{{isShowModal}}">
-  <v-calendar></v-calendar>
+  <v-calendar bind:initDate="getTodayDate" bind:onChooseDate="chooseCalenderDate" bind:changeDate="onchangeDate"></v-calendar>
 </v-btmModel>
