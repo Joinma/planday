@@ -3,12 +3,13 @@
     "pages/authorization/authorization",
     "pages/index/index",
     "pages/me/me",
-    "pages/record/record"
+    "pages/record/record",
+    "pages/record/orderNote/orderNote"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#ffffff",
-    "navigationBarTitleText": "planday",
+    "navigationBarTitleText": "PocketPlan",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

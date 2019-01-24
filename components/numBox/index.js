@@ -180,6 +180,9 @@ Component({
     },
     onTapDate() {
       this.triggerEvent('ontapDate')
+    },
+    addOrderNote() {
+      this.triggerEvent('onAddOrderNote')
     }
   },
 })

@@ -61,6 +61,14 @@ Page({
       month,
     })
   },
+  addOrderNote() {
+    let year = this.data.year
+    let date = this.data.date
+    let chooseDate = `${year}年 ${date}`
+    wx.navigateTo({
+      url: `./orderNote/orderNote?chooseDate=${chooseDate}`,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
