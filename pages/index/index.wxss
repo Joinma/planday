@@ -9,9 +9,16 @@
   box-sizing: border-box;
 }
 
+.background > image {
+  border-radius: 20rpx;
+  box-shadow: 6rpx 7rpx 10rpx #aaa;
+}
+
 .top {
   width: 100%;
-  /* background-color: #f3f9f1; */
+  position: absolute;
+  z-index: 1;
+  margin-top: 30rpx;
 }
 
 .userinfo {
@@ -28,32 +35,32 @@
 }
 
 .userinfo-nickname {
-  color: #aaa;
+  color: #202524;
 }
 
 .usermotto {
-  margin-top: 20rpx;
-  margin-bottom: 20rpx;
-  color: #aaa;
+  margin-top: 24rpx;
+  color: #202524;
+  letter-spacing: 3rpx;
+  font-size: 38rpx;
   text-align: center;
 }
 
 .planTags {
-  /* width: 100%; */
   display: flex;
-  flex-direction: column;  
+  flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  padding-top: 100rpx;
+  margin-top: 32rpx;
 }
 
 .planTags > view {
   text-decoration: line-through;
   /* width: 200rpx; */
-  padding:10rpx 20rpx;
+  padding: 10rpx 20rpx;
   margin: 12rpx;
   border: 1rpx solid #fff;
   background-color: #aaa;
   color: #fff;
-  border-radius: 20rpx;  
+  border-radius: 20rpx;
 }
