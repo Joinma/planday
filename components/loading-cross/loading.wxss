@@ -1,9 +1,9 @@
 /* components/loading/loading.wxss */
-#preloader_3 {
+.preloader {
   position: relative;
 }
 
-#preloader_3:before {
+.preloader:before {
   width: 20px;
   height: 20px;
   border-radius: 20px;
@@ -11,10 +11,10 @@
   content: '';
   position: absolute;
   background: #9b59b6;
-  animation: preloader_3_before 1.5s infinite ease-in-out;
+  animation: preloader_before 1.5s infinite ease-in-out;
 }
 
-#preloader_3:after {
+.preloader:after {
   width: 20px;
   height: 20px;
   border-radius: 20px;
@@ -23,10 +23,10 @@
   position: absolute;
   background: #2ecc71;
   left: 22px;
-  animation: preloader_3_after 1.5s infinite ease-in-out;
+  animation: preloader_after 1.5s infinite ease-in-out;
 }
 
-@keyframes preloader_3_before {
+@keyframes preloader_before {
   0% {
     transform: translateX(0px) rotate(0deg);
   }
@@ -42,7 +42,7 @@
   }
 }
 
-@keyframes preloader_3_after {
+@keyframes preloader_after {
   0% {
     transform: translateX(0px);
   }

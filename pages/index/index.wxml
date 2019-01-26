@@ -1,8 +1,8 @@
 <!--index.wxml-->
 <view class="container">
-  <div class="background">
+  <view class="background">
     <image src="/images/hello-cloud.jpeg"></image>
-  </div>
+  </view>
   <view class='top'>
     <view class="userinfo">
       <block>

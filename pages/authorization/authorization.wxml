@@ -11,12 +11,7 @@
 
 <view class='container' wx:if='{{hasUserInfo}}'>
   <view class='loading'>
-    <div id="preloader">
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
+    <v-loading-cross></v-loading-cross>
+    <!-- <v-loading-wave></v-loading-wave> -->
   </view>
 </view>

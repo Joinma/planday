@@ -1,1 +1,6 @@
-{}
+{
+  "usingComponents": {
+    "v-loading-cross": "/components/loading-cross/loading",
+    "v-loading-wave": "/components/loading-wave/loading"
+  }
+}
