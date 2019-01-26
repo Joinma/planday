@@ -1,0 +1,4 @@
+<!--components/loading/loading.wxml-->
+<view>
+  <div id="preloader_3"></div>
+</view>
