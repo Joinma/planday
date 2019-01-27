@@ -1,5 +1,5 @@
 <!--index.wxml-->
-<view class="container">
+<view class="container" bindlongpress='uploadBackgroundImg'>
   <view class="background">
     <image src="/images/hello-cloud.jpeg"></image>
   </view>
@@ -14,16 +14,19 @@
   </view>
 </view>
 <view class="planTags">
-  <view>
-    好好睡觉1好好睡觉1
-  </view>
-  <view>
-    好好睡觉2好好睡觉1好好睡觉1
-  </view>
-  <view>
-    好好睡觉3
-  </view>
-  <view>
-    好好睡觉4
+  <view bindtap='redirctToDayPlanDetail' bindlongpress='showOperateModal' wx:for="{{dayPlans}}" wx:for-item="dayPlan" wx:key="id" class="{{dayPlan.status==1?'delLine':''}}">
+    {{dayPlan.content}}
   </view>
 </view>
+
+<!-- 添加每日计划 -->
+<view class='addPlan' bindtap='addDayPlan'>
+  <image src='/images/add.png'></image>
+</view>
+
+<!-- 模态框 暂时弃用，留着是以后参考-->
+<view wx:if='{{showOperateModal}}' class='operateModal'>
+  <view bindtap='editDayPlan'>编辑</view>
+  <view bindtap='deleteDayPlan'>删除</view>
+</view>
+<view class='maskLayer' wx:if='{{showOperateModal}}' bindtap='hiddenOperateModal'></view>

@@ -46,8 +46,8 @@ Page({
         "type": "add"
       }
     ],
-    pageTabNum:10,
-    isShowModal:false
+    pageTabNum: 10,
+    isShowModal: false
   },
 
   /**

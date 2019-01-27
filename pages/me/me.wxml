@@ -1,4 +1,4 @@
 <!--pages/me/me.wxml-->
-<text>
-个人中心
-</text>
+<view class='top'>
+  <image src='/images/center.jpeg'></image>
+</view>

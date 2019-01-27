@@ -34,7 +34,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 1,
+			"current": 2,
 			"list": [
 				{
 					"id": -1,
@@ -45,7 +45,14 @@
 				{
 					"id": -1,
 					"name": "authorization",
-					"pathName": "pages/authorization/authorization"
+					"pathName": "pages/authorization/authorization",
+					"query": ""
+				},
+				{
+					"id": -1,
+					"name": "me",
+					"pathName": "pages/me/me",
+					"scene": null
 				}
 			]
 		}
