@@ -11,18 +11,20 @@
 
 .background {
   text-align: center;
+  /* width: 100%; */
 }
 
 .background > image {
   border-radius: 20rpx;
   box-shadow: 6rpx 7rpx 10rpx #aaa;
+  /* width: 100%; */
 }
 
 .top {
   /* width: 100%; */
   position: absolute;
   z-index: 1;
-  margin-top: 30rpx;
+  /* margin-top: 30rpx; */
 }
 
 .userinfo {

@@ -1,10 +1,22 @@
 /* pages/dayplan/dayplan.wxss */
 
-.form > view {
-  display: flex;
-  margin-left: 10rpx;
+.form {
+  font-size: 32rpx;
 }
 
-.form > view > input {
-  margin-left: 10rpx;
+.section {
+  margin: 20rpx;
+}
+
+.section > textarea {
+  background: #f4f4f4;
+}
+
+.section > input {
+  background: #f4f4f4;
+  margin-top: 20rpx;
+}
+
+.form > button {
+  background: linear-gradient(120deg, #4086f5, #457ad1);
 }
