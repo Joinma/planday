@@ -123,10 +123,16 @@ Page({
     })
   },
   addDayPlan() {
-    wx.showToast({
-      title: 'add...',
-      icon: 'none',
-      duration: 2000
+    // wx.showToast({
+    //   title: 'add...',
+    //   icon: 'none',
+    //   duration: 2000
+    // })
+    wx.redirectTo({
+      url: '/pages/dayplan/dayplan',
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
     })
   }
 })

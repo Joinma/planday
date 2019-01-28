@@ -1,0 +1,10 @@
+/* pages/dayplan/dayplan.wxss */
+
+.form > view {
+  display: flex;
+  margin-left: 10rpx;
+}
+
+.form > view > input {
+  margin-left: 10rpx;
+}

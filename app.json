@@ -3,7 +3,8 @@
     "pages/authorization/authorization",
     "pages/index/index",
     "pages/me/me",
-    "pages/record/record"
+    "pages/record/record",
+    "pages/dayplan/dayplan"
   ],
   "window": {
     "backgroundTextStyle": "light",
