@@ -8,16 +8,14 @@ const dayPlanModel = new DayPlanModel()
 
 Page({
   data: {
-    userInfo: {},
     dayPlans: []
   },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function() {
-    this.setData({
-      userInfo: app.globalData.userInfo
-    })
+    // 这一年还剩下多少时间
+    
 
     dayPlanModel.getDayPlans().then(res => {
       let dayPlans = res.data.data.list;

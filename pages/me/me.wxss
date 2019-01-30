@@ -1,10 +1,54 @@
-/* pages/me/me.wxss */
+/**index.wxss**/
 
-.top {
-  text-align: center;
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  box-sizing: border-box;
 }
 
-.top > image {
-  width: 100%;
-  border-radius: 12rpx;
+.background {
+  text-align: center;
+  /* width: 100%; */
+}
+
+.background > image {
+  border-radius: 20rpx;
+  box-shadow: 6rpx 7rpx 10rpx #aaa;
+  /* width: 100%; */
+}
+
+.top {
+  /* width: 100%; */
+  position: absolute;
+  z-index: 1;
+  /* margin-top: 30rpx; */
+}
+
+.userinfo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.userinfo-avatar {
+  width: 128rpx;
+  height: 128rpx;
+  margin: 40rpx 20rpx 20rpx 20rpx;
+  border-radius: 50%;
+}
+
+.userinfo-nickname {
+  color: rgb(112, 112, 112);
+  font: 38rpx 黑体;
+}
+
+.usermotto {
+  margin-top: 24rpx;
+  color: rgb(61, 60, 60);
+  letter-spacing: 2rpx;
+  font: 36rpx 宋体;
+  text-align: center;
 }
