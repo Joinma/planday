@@ -2,11 +2,28 @@
 
 .schedule {
   text-align: center;
-  line-height: 240rpx;
 }
 
-.schedule >label {
-  font-size: 50rpx;
+.schedule > view {
+  color: #ffba5a;
+  font-size: 72rpx;
+  line-height: 200rpx;
+}
+
+.remainingText {
+  font-size: 32rpx;
+}
+
+.remainingDaysNum {
+  color: #c70039;
+  font: italic 45rpx 黑体;
+  margin-left: 10rpx;
+  margin-right: 14rpx;
+}
+
+.schedule > progress {
+  margin-top: 32rpx;
+  margin-bottom: 32rpx;
 }
 
 .planTags {
@@ -14,7 +31,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: flex-start;
-  margin-top: 32rpx;
 }
 
 .planTags > view {

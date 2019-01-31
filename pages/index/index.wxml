@@ -1,6 +1,10 @@
 <!--index.wxml-->
 <view class='schedule'>
-  <label>78%</label>
+  <view>{{consumeDaysPercent}} %</view>
+  <text class='remainingText'>2019 只剩下</text>
+  <text class='remainingDaysNum'>{{remainingDaysNum}}</text>
+  <text class='remainingText'>天</text>
+  <progress percent='{{consumeDaysPercent}}' active color='#ff7657' />
 </view>
 <!-- 计划 -->
 <view class="planTags">
