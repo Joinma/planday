@@ -9,7 +9,7 @@
 <!-- 计划 -->
 <view class="planTags">
   <view bindtap='redirctToDayPlanDetail' bindlongpress='showOperateModal' wx:for="{{dayPlans}}" wx:for-item="dayPlan" wx:key="id" class="{{dayPlan.status==1?'delLine':''}}">
-    {{dayPlan.content}}
+    {{dayPlan.title}}
   </view>
 </view>
 <!-- 添加每日计划 -->

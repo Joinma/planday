@@ -12,6 +12,15 @@ class DayPlanModel extends HTTP {
       method: 'GET',
     })
   }
+
+  saveDayPlan(data) {
+    let url = baseUrl + '/save'
+    return this.request({
+      url: url,
+      method: 'POST',
+      data: data
+    })
+  }
 }
 
 export {

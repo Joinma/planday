@@ -1,13 +1,32 @@
 <!--pages/dayplan/dayplan.wxml-->
 <view class='form'>
   <view class='section'>
-    <label>计划内容</label>
-    <!-- <input placeholder='计划内容'/> -->
-    <textarea placeholder='计划内容' maxlength='30' />
+    <text>计划标题</text>
+    <input value='{{title}}' bindinput='inputTitle' maxlength='12' />
   </view>
   <view class='section'>
-    <label>计划时间</label>
-    <input placeholder='计划时间' />
+    <text>计划内容</text>
+    <textarea value='{{content}}' bindinput='inputContent' maxlength='60' />
   </view>
-  <button>提交</button>
+  <view class="section">
+    <text>计划时间</text>
+    <picker mode="date" value="{{planDate}}" bindchange="bindDateChange">
+      <view class="picker">
+        {{planDate}}
+      </view>
+    </picker>
+  </view>
+  <view class='section'>
+    <text>重要程度</text>
+    <input value='{{level}}' bindinput='inputLevel' />
+  </view>
+  <view class='section'>
+    <text>完成奖励</text>
+    <input value='{{reward}}' bindinput='inputReward' />
+  </view>
+  <view class='section'>
+    <text>未完成惩罚</text>
+    <input value='{{punish}}' bindinput='inputPunish' />
+  </view>
+  <button bindtap='saveDayPlan'>提交</button>
 </view>

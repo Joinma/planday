@@ -133,22 +133,22 @@ Page({
       complete: function(res) {},
     })
   },
-  getRemainingDaysNum: function() {
+  getRemainingDaysNum() {
     return this.getCurrentYearDaysNum() - this.getConsumeDaysNum()
   },
-  getConsumeDaysPercent: function() {
+  getConsumeDaysPercent() {
     let yearDaysNum = this.getCurrentYearDaysNum()
     let consumeDaysNum = this.getConsumeDaysNum()
     let consumeDaysPercent = (consumeDaysNum / yearDaysNum) * 100
     return consumeDaysPercent.toFixed(2)
   },
-  getCurrentYearDaysNum: function() {
+  getCurrentYearDaysNum() {
     let year = new Date().getFullYear()
     let isLeap = (0 === year % 4) && (0 === year % 100) || (0 === year % 400)
     let days = isLeap ? 366 : 365
     return days
   },
-  getConsumeDaysNum: function() {
+  getConsumeDaysNum() {
     let oneDayMillis = 24 * 3600 * 1000
     let currentDate = new Date()
     let currentMonthStartDate = new Date(currentDate.getFullYear() + "/01/01")
