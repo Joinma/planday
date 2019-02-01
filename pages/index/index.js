@@ -82,11 +82,14 @@ Page({
     let that = this;
     let dayPlanId = e.target.dataset.id
     wx.showActionSheet({
-      itemList: ['删除', '取消'],
+      itemList: ['完成', '删除', '取消'],
       success(res) {
         let index = res.tapIndex
         switch (index) {
           case 0:
+            that.completeDayPlan(dayPlanId);
+            break
+          case 1:
             that.deleteDayPlan(dayPlanId);
             break
           default:
@@ -102,8 +105,18 @@ Page({
     let dayPlanId = e.target.dataset.id
     this.redirectToDayPlanPage(dayPlanId)
   },
+  completeDayPlan(dayPlanId) {
+    let data = {}
+    data.id = dayPlanId
+    data.status = 1
+    dayPlanModel.updateDayPlan(data).then(res => {
+      this.onShow()
+    })
+  },
   deleteDayPlan(dayPlanId) {
-    dayPlanModel.deleteDayPlan(dayPlanId)
+    dayPlanModel.deleteDayPlan(dayPlanId).then(res => {
+      this.onShow()
+    })
   },
   addDayPlan() {
     this.redirectToDayPlanPage()

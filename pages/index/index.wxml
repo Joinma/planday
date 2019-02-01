@@ -6,13 +6,20 @@
   <text class='remainingText'>天</text>
   <progress percent='{{consumeDaysPercent}}' active color='#ff7657' />
 </view>
+<view>
+  <image src='/images/illustration.jpg' class='tagImg'></image>
+</view>
+<view class='planTop'>
+  <view class='verticalLine'></view>
+  <text>今日事项</text>
+</view>
 <!-- 计划 -->
 <view class="planTags">
-  <view bindtap='editDayPlan' bindlongpress='showOperateModal' wx:for="{{dayPlans}}" wx:for-item="dayPlan" wx:key="id" data-id='{{dayPlan.id}}'  class="{{dayPlan.status==1?'delLine':''}}">
+  <view bindtap='editDayPlan' bindlongpress='showOperateModal' wx:for="{{dayPlans}}" wx:for-item="dayPlan" wx:key="id" data-id='{{dayPlan.id}}' class="{{dayPlan.status==1?'delLine':''}}">
     {{dayPlan.title}}
   </view>
 </view>
-<!-- 添加每日计划 -->
+<!-- 添加单日计划 -->
 <view class='addPlan' bindtap='addDayPlan'>
   <image src='/images/add.png'></image>
 </view>
