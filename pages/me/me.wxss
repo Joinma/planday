@@ -11,20 +11,19 @@
 
 .background {
   text-align: center;
-  /* width: 100%; */
+  width: 100%;
 }
 
 .background > image {
   border-radius: 20rpx;
   box-shadow: 6rpx 7rpx 10rpx #aaa;
-  /* width: 100%; */
+  width: 94%;
+  height: 400rpx;
 }
 
 .top {
-  /* width: 100%; */
   position: absolute;
   z-index: 1;
-  /* margin-top: 30rpx; */
 }
 
 .userinfo {
@@ -51,4 +50,23 @@
   letter-spacing: 2rpx;
   font: 36rpx 宋体;
   text-align: center;
+}
+
+.tagBackground {
+  background: rgb(211, 211, 211);
+}
+
+.tag {
+  line-height: 120rpx;
+  margin-top: 6rpx;
+  background: #fff;
+}
+
+.tag > text {
+  margin-left: 22rpx;
+}
+
+.tag > text:nth-child(2) {
+  float: right;
+  margin-right: 22rpx;
 }

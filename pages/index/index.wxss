@@ -95,15 +95,15 @@
   left: 84%;
   width: 74rpx;
   height: 74rpx;
-  background: rgba(0, 0, 0, 0.404);
+  background: #7e7e7e;
   border-radius: 50%;
   box-shadow: 6rpx 4rpx 10rpx #aaa;
 }
 
 .addPlan > image {
-  width: 50rpx;
-  height: 50rpx;
+  width: 40rpx;
+  height: 40rpx;
   position: relative;
-  left: 14%;
-  top: 14%;
+  left: 25%;
+  top: 23%;
 }

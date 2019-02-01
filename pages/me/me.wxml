@@ -6,9 +6,23 @@
   </view>
   <view class='top'>
     <view class="userinfo">
-        <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
-        <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <image bindtap="bindViewTap" class="userinfo-avatar" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
     </view>
     <view class='usermotto'>这是一句很有道理的话</view>
+  </view>
+</view>
+<view class='tagBackground'>
+  <view class='tag'>
+    <text>日历</text>
+    <text>></text>
+  </view>
+  <view class='tag'>
+    <text>每日重复计划</text>
+    <text>></text>
+  </view>
+  <view class='tag'>
+    <text>过往单日计划</text>
+    <text>></text>
   </view>
 </view>
