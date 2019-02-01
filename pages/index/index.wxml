@@ -1,4 +1,7 @@
 <!--index.wxml-->
+<!-- <view class='schedulebg'>
+  <image src='/images/schedulebg.png'></image>
+</view> -->
 <view class='schedule'>
   <view>{{consumeDaysPercent}} %</view>
   <text class='remainingText'>2019 只剩下</text>
@@ -7,16 +10,17 @@
   <progress percent='{{consumeDaysPercent}}' active color='#ff7657' />
 </view>
 <view>
-  <image src='/images/illustration.jpg' class='tagImg'></image>
+  <image src='/images/today_plan.png' class='tagImg'></image>
 </view>
-<view class='planTop'>
+<!-- <view class='planTop'>
   <view class='verticalLine'></view>
   <text>今日事项</text>
-</view>
+</view> -->
 <!-- 计划 -->
 <view class="planTags">
   <view bindtap='editDayPlan' bindlongpress='showOperateModal' wx:for="{{dayPlans}}" wx:for-item="dayPlan" wx:key="id" data-id='{{dayPlan.id}}' class="{{dayPlan.status==1?'delLine':''}}">
-    {{dayPlan.title}}
+    <view class='verticalLine'></view>
+    <text>{{dayPlan.title}}</text>
   </view>
 </view>
 <!-- 添加单日计划 -->
