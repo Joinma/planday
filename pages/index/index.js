@@ -19,14 +19,9 @@ Page({
     // 这一年还剩下多少时间
     let remainingDaysNum = this.getRemainingDaysNum()
     let consumeDaysPercent = this.getConsumeDaysPercent()
-
-    dayPlanModel.getDayPlans().then(res => {
-      let dayPlans = res.data.data.list
-      this.setData({
-        remainingDaysNum: remainingDaysNum,
-        consumeDaysPercent: consumeDaysPercent,
-        dayPlans: dayPlans
-      })
+    this.setData({
+      remainingDaysNum: remainingDaysNum,
+      consumeDaysPercent: consumeDaysPercent
     })
   },
   /**
@@ -40,7 +35,13 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function() {
-
+    let userId = wx.getStorageSync('userId')
+    dayPlanModel.getCurrentDayPlans(userId).then(res => {
+      let dayPlans = res.data.data
+      this.setData({
+        dayPlans: dayPlans
+      })
+    })
   },
 
   /**
@@ -77,30 +78,16 @@ Page({
   onShareAppMessage: function() {
 
   },
-  redirctToDayPlanDetail() {
-    wx.showToast({
-      title: '将要跳转到每日计划详情',
-      icon: 'none',
-      duration: 2000
-    })
-  },
-  uploadBackgroundImg() {
-    console.log('这是一个隐藏事件，更换背景图')
-  },
-  showOperateModal() {
+  showOperateModal(e) {
     let that = this;
+    let dayPlanId = e.target.dataset.id
     wx.showActionSheet({
-      itemList: ['编辑', '删除', '取消'],
+      itemList: ['删除', '取消'],
       success(res) {
         let index = res.tapIndex
         switch (index) {
           case 0:
-            that.editDayPlan();
-            break
-          case 1:
-            that.deleteDayPlan();
-            break
-          case 2:
+            that.deleteDayPlan(dayPlanId);
             break
           default:
             break
@@ -111,27 +98,15 @@ Page({
       }
     })
   },
-  editDayPlan() {
-    wx.showToast({
-      title: 'edit...',
-      icon: 'none',
-      duration: 2000
-    })
+  editDayPlan(e) {
+    let dayPlanId = e.target.dataset.id
+    this.redirectToDayPlanPage(dayPlanId)
   },
-  deleteDayPlan() {
-    wx.showToast({
-      title: 'delete....',
-      icon: 'none',
-      duration: 2000
-    })
+  deleteDayPlan(dayPlanId) {
+    dayPlanModel.deleteDayPlan(dayPlanId)
   },
   addDayPlan() {
-    wx.redirectTo({
-      url: '/pages/dayplan/dayplan',
-      success: function(res) {},
-      fail: function(res) {},
-      complete: function(res) {},
-    })
+    this.redirectToDayPlanPage()
   },
   getRemainingDaysNum() {
     return this.getCurrentYearDaysNum() - this.getConsumeDaysNum()
@@ -155,4 +130,13 @@ Page({
     let consumeDaysNum = Math.floor((currentDate - currentMonthStartDate) / oneDayMillis)
     return consumeDaysNum
   },
+  redirectToDayPlanPage(id) {
+    let url = id ? '/pages/dayplan/dayplan?id=' + id : '/pages/dayplan/dayplan'
+    wx.navigateTo({
+      url: url,
+      success: function(res) {},
+      fail: function(res) {},
+      complete: function(res) {},
+    })
+  }
 })

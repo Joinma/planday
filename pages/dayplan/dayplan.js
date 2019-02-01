@@ -1,4 +1,5 @@
 // pages/dayplan/dayplan.js
+const date = require('../../utils/date.js')
 import {
   DayPlanModel
 } from '../../models/dayplan.js'
@@ -9,6 +10,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    id: '',
     title: '',
     content: '',
     planTime: '',
@@ -17,14 +19,36 @@ Page({
     percent: '',
     score: '',
     reward: '',
-    punish: ''
+    punish: '',
+    isEdit: true,
+    levels: ['重要且必要', '重要', '选做']
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
+    let dayPlanId = options.id
+    if (dayPlanId) {
+      dayPlanModel.getSingleDayPlan(dayPlanId).then(res => {
+        let dayPlan = res.data.data
+        let planTime = dayPlan.planTime
+        let planDate = date.formatMillisToDate(planTime, 'Y-M-D')
+        this.setData({
+          id: dayPlanId,
+          title: dayPlan.title,
+          content: dayPlan.content,
+          planTime: planTime,
+          planDate: planDate,
+          level: dayPlan.level,
+          percent: dayPlan.percent,
+          score: dayPlan.score,
+          reward: dayPlan.reward,
+          punish: dayPlan.punish,
+          isEdit: false
+        })
+      })
+    }
   },
 
   /**
@@ -82,6 +106,11 @@ Page({
       planTime: new Date(planDate).getTime()
     })
   },
+  bindLevelChange(e) {
+    this.setData({
+      level: e.detail.value
+    })
+  },
   inputTitle(e) {
     this.setData({
       title: e.detail.value
@@ -90,11 +119,6 @@ Page({
   inputContent(e) {
     this.setData({
       content: e.detail.value
-    })
-  },
-  inputLevel(e) {
-    this.setData({
-      level: e.detail.value
     })
   },
   inputReward(e) {
@@ -107,7 +131,8 @@ Page({
       punish: e.detail.value
     })
   },
-  saveDayPlan() {
+  saveDayPlan(e) {
+    let dayPlanId = e.target.dataset.id
     if (!this.validateFormData()) {
       return false
     }
@@ -121,11 +146,12 @@ Page({
     data.reward = this.data.reward
     data.punish = this.data.punish
     data.planTime = this.data.planTime
-    dayPlanModel.saveDayPlan(data).then(res => {
-      wx.switchTab({
-        url: '/pages/index/index',
-      })
-    })
+    if (!dayPlanId) {
+      this.saveDayPlanHander(data)
+    } else {
+      data.id = this.data.id
+      this.updateDayPlanHander(data)
+    }
   },
   validateFormData() {
     let title = this.data.title
@@ -135,7 +161,6 @@ Page({
     let reward = this.data.reward
     let punish = this.data.punish
     let planTime = new Date(planDate).getTime()
-    console.log('title: ', title)
     if (!title) {
       this.showToastWithoutIcon('请输入计划标题')
       return false
@@ -163,10 +188,29 @@ Page({
 
     return true
   },
+  saveDayPlanHander(data) {
+    dayPlanModel.saveDayPlan(data).then(res => {
+      wx.switchTab({
+        url: '/pages/index/index',
+      })
+    })
+  },
+  updateDayPlanHander(data) {
+    dayPlanModel.updateDayPlan(data).then(res => {
+      wx.switchTab({
+        url: '/pages/index/index',
+      })
+    })
+  },
   showToastWithoutIcon(title) {
     wx.showToast({
       title: title,
       icon: 'none'
+    })
+  },
+  changeToEdit() {
+    this.setData({
+      isEdit: true
     })
   }
 })

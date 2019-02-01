@@ -1,32 +1,41 @@
 <!--pages/dayplan/dayplan.wxml-->
+<view class='topBar' wx:if='{{!isEdit}}'>
+  <image src='/images/edit.png' class='editImg' bindtap='changeToEdit'></image>
+</view>
 <view class='form'>
   <view class='section'>
     <text>计划标题</text>
-    <input value='{{title}}' bindinput='inputTitle' maxlength='12' />
+    <input value='{{title}}' bindinput='inputTitle' maxlength='12' disabled='{{!isEdit ? true : false}}' />
   </view>
   <view class='section'>
     <text>计划内容</text>
-    <textarea value='{{content}}' bindinput='inputContent' maxlength='60' />
+    <textarea value='{{content}}' bindinput='inputContent' maxlength='60' disabled='{{!isEdit ? true : false}}' />
   </view>
   <view class="section">
     <text>计划时间</text>
-    <picker mode="date" value="{{planDate}}" bindchange="bindDateChange">
+    <picker mode="date" value="{{planDate}}" bindchange="bindDateChange" disabled='{{!isEdit ? true : false}}'>
       <view class="picker">
         {{planDate}}
       </view>
     </picker>
   </view>
-  <view class='section'>
+  <view class="section">
     <text>重要程度</text>
-    <input value='{{level}}' bindinput='inputLevel' />
+    <picker bindchange="bindLevelChange" value="{{level}}" range="{{levels}}">
+      <view class="picker">
+        {{levels[level]}}
+      </view>
+    </picker>
   </view>
   <view class='section'>
     <text>完成奖励</text>
-    <input value='{{reward}}' bindinput='inputReward' />
+    <input value='{{reward}}' bindinput='inputReward' disabled='{{!isEdit ? true : false}}' />
   </view>
   <view class='section'>
     <text>未完成惩罚</text>
-    <input value='{{punish}}' bindinput='inputPunish' />
+    <input value='{{punish}}' bindinput='inputPunish' disabled='{{!isEdit ? true : false}}' />
   </view>
-  <button bindtap='saveDayPlan'>提交</button>
+  <view class='sumbit'>
+    <button bindtap='saveDayPlan' wx:if='{{isEdit}}' data-id='{{id}}'>提交</button>
+  </view>
 </view>

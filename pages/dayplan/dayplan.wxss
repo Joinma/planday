@@ -1,5 +1,17 @@
 /* pages/dayplan/dayplan.wxss */
 
+.topBar {
+  height: 60rpx;
+  margin-top: 20rpx;
+}
+
+.editImg {
+  float: right;
+  width: 54rpx;
+  height: 54rpx;
+  margin-right: 32rpx;
+}
+
 .form {
   font-size: 32rpx;
 }
@@ -11,7 +23,7 @@
 .section > textarea {
   background: #f4f4f4;
   margin-top: 20rpx;
-  width: 100%;
+  width: 97%;
   height: 120rpx;
   border-radius: 10rpx;
   padding: 10rpx;
@@ -34,7 +46,14 @@
   padding: 0rpx 10rpx;
 }
 
-.form > button {
+.sumbit {
+  width: 100%;
+  display: flex; 
+  align-items:center;
+  margin: 48rpx 0rpx;
+}
+
+.sumbit > button {
   background: linear-gradient(120deg, #4086f5, #457ad1);
-  margin: 0rpx 10rpx;
+  width: 66%;
 }

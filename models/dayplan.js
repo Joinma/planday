@@ -21,6 +21,39 @@ class DayPlanModel extends HTTP {
       data: data
     })
   }
+
+  getSingleDayPlan(id) {
+    let url = baseUrl + '/query/' + id
+    return this.request({
+      url: url,
+      method: 'GET',
+    })
+  }
+
+  deleteDayPlan(id) {
+    let url = baseUrl + '/delete/' + id
+    return this.request({
+      url: url,
+      method: 'DELETE',
+    })
+  }
+
+  updateDayPlan(data) {
+    let url = baseUrl + '/update'
+    return this.request({
+      url: url,
+      method: 'PUT',
+      data: data
+    })
+  }
+
+  getCurrentDayPlans(userId) {
+    let url = baseUrl + '/query/current/userid/' + userId
+    return this.request({
+      url: url,
+      method: 'GET',
+    })
+  }
 }
 
 export {

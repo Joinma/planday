@@ -8,7 +8,7 @@
 </view>
 <!-- 计划 -->
 <view class="planTags">
-  <view bindtap='redirctToDayPlanDetail' bindlongpress='showOperateModal' wx:for="{{dayPlans}}" wx:for-item="dayPlan" wx:key="id" class="{{dayPlan.status==1?'delLine':''}}">
+  <view bindtap='editDayPlan' bindlongpress='showOperateModal' wx:for="{{dayPlans}}" wx:for-item="dayPlan" wx:key="id" data-id='{{dayPlan.id}}'  class="{{dayPlan.status==1?'delLine':''}}">
     {{dayPlan.title}}
   </view>
 </view>
