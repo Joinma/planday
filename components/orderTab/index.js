@@ -4,10 +4,10 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    resIconList:Array,
-    pageNum:{
-      type:Number,
-      value:10
+    resIconList: Array,
+    pageNum: {
+      type: Number,
+      value: 10
     }
   },
 
@@ -15,20 +15,20 @@ Component({
    * 组件的初始数据
    */
   data: {
-    interval: 2000,    
+    interval: 2000,
     iconItem: {
-      "imgUrl": "/images/dianshijiTV.png",
+      "icon": "/images/dianshijiTV.png",
       "name": "dianTV",
       "type": "record"
     },
     addItem: {
-      "imgUrl": "/images/addIcon.png",
+      "icon": "/images/addIcon.png",
       "name": "添加",
       "type": "add"
     },
-    _newIconList:[]
+    _newIconList: []
   },
-  attached (){
+  attached() {
     // deal with res data
     this.resetResArray();
   },
@@ -38,11 +38,12 @@ Component({
   methods: {
     resetResArray() {
       const resIconList = this.data.resIconList
+      console.log("resIconList1", resIconList)
       const pageNum = this.properties.pageNum
       const newIconList = []
       let listIndex = 0
       let listInnerArray = []
-      resIconList.forEach(function (value, index) {
+      resIconList.forEach(function(value, index) {
         if (listIndex < pageNum) {
           listIndex += 1
           listInnerArray.push(value)
@@ -65,7 +66,7 @@ Component({
       })
       console.log("resIconList", newIconList)
     },
-    recordOrAdd: function (e) {
+    recordOrAdd: function(e) {
       let dataInfo = e.currentTarget.dataset.info
       let iconType = dataInfo.split('-')[0]
       let index = dataInfo.split('-')[0]
@@ -77,7 +78,7 @@ Component({
         this.addRecordItem();
       }
     },
-    addRecordItem: function () {
+    addRecordItem: function() {
       let iconList = this.data._newIconList
       let iconListLength = iconList.length
       let iconItem = this.data.iconItem
@@ -98,7 +99,7 @@ Component({
         iconList.push(iconArray)
       }
       // this.properties.newIconList = iconList
-      
+
       this.setData({
         _newIconList: iconList
       })

@@ -1,47 +1,52 @@
 // pages/record/record.js
-Page({
+import {
+  UserConsumeCategoryModel
+} from '../../models/userconsumecategory.js'
+const userConsumeCategoryModel = new UserConsumeCategoryModel()
 
+Page({
   /**
    * 页面的初始数据
    */
   data: {
+    consumeCategories: [],
     resIconList: [{
-        "imgUrl": "/images/TV.png",
+        "icon": "/images/TV.png",
         "name": "tvShow",
         "type": "record"
       },
       {
-        "imgUrl": "/images/bofang.png",
+        "icon": "/images/bofang.png",
         "name": "bofang",
         "type": "record"
       },
       {
-        "imgUrl": "/images/chabei.png",
+        "icon": "/images/chabei.png",
         "name": "chabei",
         "type": "record"
       },
       {
-        "imgUrl": "/images/dianshijiTV.png",
+        "icon": "/images/dianshijiTV.png",
         "name": "dianshijiTV",
         "type": "record"
       },
       {
-        "imgUrl": "/images/TV.png",
+        "icon": "/images/TV.png",
         "name": "huatong",
         "type": "record"
       },
       {
-        "imgUrl": "/images/xing.png",
+        "icon": "/images/xing.png",
         "name": "xing",
         "type": "record"
       },
       {
-        "imgUrl": "/images/yinle.png",
+        "icon": "/images/yinle.png",
         "name": "yingle",
         "type": "record"
       },
       {
-        "imgUrl": "/images/addIcon.png",
+        "icon": "/images/addIcon.png",
         "name": "添加",
         "type": "add"
       }
@@ -54,12 +59,7 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-
-  },
-  tapDate() {
-    this.setData({
-      isShowModal: true
-    })
+    this.getUserConsumeCategoriesByType(0)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -108,5 +108,21 @@ Page({
    */
   onShareAppMessage: function() {
 
+  },
+  tapDate() {
+    this.setData({
+      isShowModal: true
+    })
+  },
+  getUserConsumeCategoriesByType(type = 0) {
+    let userId = wx.getStorageSync('userId')
+    let params = '?pageSize=1000&type=' + type + '&userId=' + userId
+    userConsumeCategoryModel.getUserConsumeCategories(params).then(res => {
+      this.setData({
+        consumeCategories: res.data.data.list
+      })
+    })
   }
+
+
 })

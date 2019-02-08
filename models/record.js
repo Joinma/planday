@@ -1,4 +1,6 @@
-import { HTTP } from '../utils/http.js'
+import {
+  HTTP
+} from '../utils/http.js'
 const http = new HTTP()
 
 class ClassicModel extends HTTP {
@@ -6,19 +8,21 @@ class ClassicModel extends HTTP {
   getLatest() {
     return this.request({
       url: 'classic/latest',
-      data: { 
+      data: {
         name: '1',
         age: 18
       },
       method: 'POST'
     })
   }
-  getLogin(){
+  getLogin() {
     return this.request({
-      url:''
+      url: ''
     })
   }
 
 }
 
-export { ClassicModel }
+export {
+  ClassicModel
+}

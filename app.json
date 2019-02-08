@@ -6,7 +6,8 @@
     "pages/record/record",
     "pages/dayplan/dayplan",
     "pages/dailyplan/dailyplan",
-    "pages/dailyplanlist/dailyplanlist"
+    "pages/dailyplanlist/dailyplanlist",
+    "pages/dayplanhistory/dayplanhistory"
   ],
   "window": {
     "backgroundTextStyle": "light",

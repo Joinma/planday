@@ -34,7 +34,7 @@
 			"list": []
 		},
 		"miniprogram": {
-			"current": 4,
+			"current": 5,
 			"list": [
 				{
 					"id": -1,
@@ -66,6 +66,13 @@
 					"id": -1,
 					"name": "dailyplanlist",
 					"pathName": "pages/dailyplanlist/dailyplanlist",
+					"query": "",
+					"scene": null
+				},
+				{
+					"id": -1,
+					"name": "dayplanhistory",
+					"pathName": "pages/dayplanhistory/dayplanhistory",
 					"scene": null
 				}
 			]
