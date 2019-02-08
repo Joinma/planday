@@ -6,7 +6,7 @@ Component({
   properties: {
     name: {
       type: String,
-      value: 'xing'
+      value: ''
     },
     price: {
       type: String,

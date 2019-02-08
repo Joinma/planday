@@ -5,7 +5,7 @@
       <view class='iconInnerList'>
         <block wx:for="{{tabItem}}" wx:key="{{index}}">
           <view class='iconInnerItem' style='width:{{200/pageNum}}%' bindtap='recordOrAdd' data-info="{{item.type}}-{{index}}">
-            <image mode='widthFix' class="iconInnerImg" src="{{item.icon}}"></image>
+            <image mode='widthFix' class="iconInnerImg" src="{{imageUrl+item.icon}}" style='background-color:{{item.color}}'></image>
             <view class='iconInnerName'>{{item.name}}</view>
           </view>
         </block>

@@ -10,56 +10,16 @@ Page({
    */
   data: {
     consumeCategories: [],
-    resIconList: [{
-        "icon": "/images/TV.png",
-        "name": "tvShow",
-        "type": "record"
-      },
-      {
-        "icon": "/images/bofang.png",
-        "name": "bofang",
-        "type": "record"
-      },
-      {
-        "icon": "/images/chabei.png",
-        "name": "chabei",
-        "type": "record"
-      },
-      {
-        "icon": "/images/dianshijiTV.png",
-        "name": "dianshijiTV",
-        "type": "record"
-      },
-      {
-        "icon": "/images/TV.png",
-        "name": "huatong",
-        "type": "record"
-      },
-      {
-        "icon": "/images/xing.png",
-        "name": "xing",
-        "type": "record"
-      },
-      {
-        "icon": "/images/yinle.png",
-        "name": "yingle",
-        "type": "record"
-      },
-      {
-        "icon": "/images/addIcon.png",
-        "name": "添加",
-        "type": "add"
-      }
-    ],
     pageTabNum: 10,
-    isShowModal: false
+    isShowModal: false,
+    choosenType: 0
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function(options) {
-    this.getUserConsumeCategoriesByType(0)
+    this.getUserConsumeCategoriesByType(this.data.choosenType)
   },
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -122,7 +82,12 @@ Page({
         consumeCategories: res.data.data.list
       })
     })
+  },
+  changeType(e) {
+    let type = e.currentTarget.dataset.type
+    this.setData({
+      choosenType: type
+    })
+    this.onLoad()
   }
-
-
 })

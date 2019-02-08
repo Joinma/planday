@@ -1,7 +1,7 @@
 /* components/orderTab/index.wxss */
 
 .iconContainer {
-  height: 340rpx;
+  height: 350rpx;
 }
 
 .iconInnerList {
@@ -20,7 +20,9 @@
 }
 
 .iconInnerImg {
-  width: 72rpx;
+  width: 52rpx;
+  border-radius: 50%;
+  padding: 12rpx;
 }
 
 .iconInnerName {

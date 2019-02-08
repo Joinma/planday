@@ -1,5 +1,9 @@
 <!--pages/record/record.wxml-->
-<v-orderTab resIconList='{{resIconList}}' pageNum='{{pageTabNum}}'></v-orderTab>
+<view class='topBar'>
+  <view class='expenseBar {{choosenType==0?"choosenColor":""}}' bindtap='changeType' data-type='0'>支出</view>
+  <view class='incomeBar {{choosenType==1?"choosenColor":""}}' bindtap='changeType' data-type='1'>收入</view>
+</view>
+<v-orderTab resIconList='{{consumeCategories}}' pageNum='{{pageTabNum}}'></v-orderTab>
 <v-numbox bind:ontapDate="tapDate"></v-numbox>
 <v-btmModel showModal="{{isShowModal}}">
   <v-calendar></v-calendar>

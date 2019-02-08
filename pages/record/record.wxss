@@ -1,2 +1,22 @@
 /* pages/record/record.wxss */
 
+.topBar {
+  border-radius: 20rpx;
+  color: #40514e;
+  display: flex;
+  justify-content: center;
+}
+
+.expenseBar {
+  padding: 10rpx 40rpx;
+  float: left;
+}
+
+.incomeBar {
+  padding: 10rpx 20rpx;
+  float: left;
+}
+
+.choosenColor {
+  color: #ff7657;
+}
