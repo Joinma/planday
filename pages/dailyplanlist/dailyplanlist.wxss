@@ -1,0 +1,8 @@
+/* pages/dailyplanlist/dailyplanlist.wxss */
+
+.planTags {
+  padding: 32rpx 28rpx;
+  border-radius: 20rpx;
+  margin: 30rpx;
+  color: #fff;
+}

@@ -1,4 +1,4 @@
-<!--pages/dayplan/dayplan.wxml-->
+<!--pages/dailyplan/dailyplan.wxml-->
 <view class='topBar' wx:if='{{!isEdit}}'>
   <image src='/images/edit.png' class='editImg' bindtap='changeToEdit'></image>
 </view>
@@ -10,14 +10,6 @@
   <view class='section'>
     <text>计划内容</text>
     <textarea value='{{content}}' bindinput='inputContent' maxlength='60' disabled='{{!isEdit ? true : false}}' />
-  </view>
-  <view class="section">
-    <text>计划时间</text>
-    <picker mode="date" value="{{planDate}}" bindchange="bindDateChange" disabled='{{!isEdit ? true : false}}'>
-      <view class="picker">
-        {{planDate}}
-      </view>
-    </picker>
   </view>
   <view class="section">
     <text>重要程度</text>
@@ -35,7 +27,15 @@
     <text>未完成惩罚</text>
     <input value='{{punish}}' bindinput='inputPunish' disabled='{{!isEdit ? true : false}}' />
   </view>
+  <view class='section'>
+    <text>重复周期</text>
+    <picker bindchange="bindTypeChange" value="{{type}}" range="{{types}}" disabled='{{!isEdit ? true : false}}'>
+      <view class="picker">
+        {{types[type]}}
+      </view>
+    </picker>
+  </view>
   <view class='sumbit'>
-    <button bindtap='saveDayPlan' wx:if='{{isEdit}}' data-id='{{id}}'>提交</button>
+    <button bindtap='saveDailyPlan' wx:if='{{isEdit}}' data-id='{{id}}'>提交</button>
   </view>
 </view>

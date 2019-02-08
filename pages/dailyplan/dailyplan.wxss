@@ -1,0 +1,59 @@
+/* pages/dailyplan/dailyplan.wxss */
+
+.topBar {
+  height: 60rpx;
+  margin-top: 20rpx;
+}
+
+.editImg {
+  float: right;
+  width: 54rpx;
+  height: 54rpx;
+  margin-right: 32rpx;
+}
+
+.form {
+  font-size: 32rpx;
+}
+
+.section {
+  margin: 20rpx;
+}
+
+.section > textarea {
+  background: #f4f4f4;
+  margin-top: 20rpx;
+  width: 97%;
+  height: 120rpx;
+  border-radius: 10rpx;
+  padding: 10rpx;
+}
+
+.section > input {
+  background: #f4f4f4;
+  margin-top: 20rpx;
+  height: 80rpx;
+  border-radius: 10rpx;
+  padding: 0rpx 10rpx;
+}
+
+.picker {
+  background: #f4f4f4;
+  margin-top: 20rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  border-radius: 10rpx;
+  padding: 0rpx 10rpx;
+}
+
+.sumbit {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  margin: 48rpx 0rpx;
+}
+
+.sumbit > button {
+  background: linear-gradient(120deg, #4086f5, #457ad1);
+  width: 66%;
+}

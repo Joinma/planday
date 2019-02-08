@@ -1,0 +1,7 @@
+<!--pages/dailyplanlist/dailyplanlist.wxml-->
+<view bindtap='showDailyPlanDetail' bindlongpress='showOperateModal' wx:for='{{dailyplans}}' wx:key="id" wx:for-item='dailyplan' wx:for-index="index" data-id='{{dailyplan.id}}' class='planTags' style="background-color:{{randomColors[index]}}">
+  {{dailyplan.title}}
+</view>
+
+<!-- 添加每日计划 -->
+<v-add-btn bindaddevent='addDailyPlan'></v-add-btn>

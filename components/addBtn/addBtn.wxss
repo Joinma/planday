@@ -1,0 +1,20 @@
+/* components/addBtn/addBtn.wxss */
+
+.add {
+  position: absolute;
+  top: 86%;
+  left: 84%;
+  width: 74rpx;
+  height: 74rpx;
+  background: #7e7e7e;
+  border-radius: 50%;
+  box-shadow: 6rpx 4rpx 10rpx #aaa;
+}
+
+.add > image {
+  width: 40rpx;
+  height: 40rpx;
+  position: relative;
+  left: 25%;
+  top: 23%;
+}

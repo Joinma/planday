@@ -20,6 +20,7 @@ App({
     })
   },
   userLogin(code) {
+    console.log('user login...')
     userModel.getUserLogin(code).then(res => {
       this.globalData.userInfo = res.data.data
       wx.setStorageSync('userId', res.data.data.id)

@@ -12,10 +12,6 @@
 <view>
   <image src='/images/today_plan.png' class='tagImg'></image>
 </view>
-<!-- <view class='planTop'>
-  <view class='verticalLine'></view>
-  <text>今日事项</text>
-</view> -->
 <!-- 计划 -->
 <view class="planTags">
   <view bindtap='editDayPlan' bindlongpress='showOperateModal' wx:for="{{dayPlans}}" wx:for-item="dayPlan" wx:key="id" data-id='{{dayPlan.id}}' class="{{dayPlan.status==1?'delLine':''}}">
@@ -23,10 +19,9 @@
     <text>{{dayPlan.title}}</text>
   </view>
 </view>
+
 <!-- 添加单日计划 -->
-<view class='addPlan' bindtap='addDayPlan'>
-  <image src='/images/add.png'></image>
-</view>
+<v-add-btn bindaddevent='addDayPlan'></v-add-btn>
 
 <!-- 模态框 暂时弃用，留着是以后参考-->
 <view wx:if='{{showOperateModal}}' class='operateModal'>

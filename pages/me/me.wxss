@@ -63,10 +63,12 @@
 }
 
 .tag > text {
+  color: #7f7f7f;
   margin-left: 22rpx;
 }
 
 .tag > text:nth-child(2) {
   float: right;
   margin-right: 22rpx;
+  color: #7f7f7f;
 }

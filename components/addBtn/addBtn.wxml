@@ -1,0 +1,4 @@
+<!--components/addBtn/addBtn.wxml-->
+<view class='add' bindtap='addEvent'>
+  <image src='/images/add.png'></image>
+</view>

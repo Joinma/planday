@@ -1,0 +1,5 @@
+{
+  "usingComponents": {
+    "v-add-btn": "/components/addBtn/addBtn"
+  }
+}

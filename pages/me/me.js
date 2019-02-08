@@ -69,4 +69,22 @@ Page({
   uploadBackgroundImg() {
     console.log('这是一个隐藏事件，更换背景图')
   },
+  showDaliyPlans() {
+    // console.log('这是每天都需要做的事情')
+    wx.navigateTo({
+      url: '/pages/dailyplanlist/dailyplanlist',
+    })
+  },
+  showCalendar() {
+    wx.showToast({
+      title: '这是我的日历，在建设中...',
+      icon: 'none'
+    })
+  },
+  showPlanHistories() {
+    wx.showToast({
+      title: '这是我的过往计划，在建设中...',
+      icon: 'none'
+    })
+  }
 })

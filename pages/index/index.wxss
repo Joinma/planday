@@ -39,11 +39,12 @@
 
 .planTags {
   margin-top: 8rpx;
+  color: #727171;
 }
 
 .planTags > view {
   padding: 32rpx 28rpx;
-  border-bottom: 1rpx solid #aaa;
+  border-bottom: 1rpx solid rgb(211, 211, 211);
   border-radius: 8rpx;
   display: flex;
   align-items: center;
@@ -87,23 +88,4 @@
   font: 28rpx 宋体;
   color: rgb(61, 60, 60);
   letter-spacing: 3rpx;
-}
-
-.addPlan {
-  position: absolute;
-  top: 86%;
-  left: 84%;
-  width: 74rpx;
-  height: 74rpx;
-  background: #7e7e7e;
-  border-radius: 50%;
-  box-shadow: 6rpx 4rpx 10rpx #aaa;
-}
-
-.addPlan > image {
-  width: 40rpx;
-  height: 40rpx;
-  position: relative;
-  left: 25%;
-  top: 23%;
 }
