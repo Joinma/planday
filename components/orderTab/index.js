@@ -75,7 +75,6 @@ Component({
       })
     },
     recordOrAdd: function(e) {
-      console.log(e)
       let dataInfo = e.currentTarget.dataset.info
       let iconType = dataInfo.split('-')[0]
       let index = dataInfo.split('-')[1]

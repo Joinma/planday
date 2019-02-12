@@ -9,12 +9,6 @@ const formatTime = date => {
   return [year, month, day].map(formatNumber).join('/') + ' ' + [hour, minute, second].map(formatNumber).join(':')
 }
 
-const formatNumber = n => {
-  n = n.toString()
-  return n[1] ? n : '0' + n
-}
-
-
 /** 
  * 时间戳转化为年 月 日 时 分 秒 
  * number: 传入时间戳
@@ -40,7 +34,11 @@ function formatMillisToDate(number, format) {
   return format;
 }
 
+const formatNumber = n => {
+  n = n.toString()
+  return n[1] ? n : '0' + n
+}
+
 module.exports = {
-  formatTime: formatTime,
   formatMillisToDate: formatMillisToDate
 }

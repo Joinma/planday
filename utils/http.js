@@ -1,7 +1,7 @@
 // const hostUrl = 'http://192.168.0.103:5314/api/'
 const hostUrl = 'http://planday.getcy.cn/api/'
-// const hostUrl = 'http://192.168.2.142:5314/api/'
-const imageUrl = 'http://image.getcy.cn'
+// const hostUrl = 'http://192.168.0.157:5314/api/'
+const imageUrl = 'http://image.getcy.cn/api'
 
 // 封装 http 请求
 class HTTP {
