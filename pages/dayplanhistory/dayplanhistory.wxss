@@ -1,10 +1,11 @@
 /* pages/dayplanhistory/dayplanhistory.wxss */
 
 .dayPlanHistoryTag {
-  margin-top: 15rpx;
+  margin: 15rpx 10rpx 0rpx 10rpx;
   line-height: 80rpx;
-  background: rgb(158, 153, 153);
+  background: #738598;
   color: #fff;
+  border-radius: 10rpx;
 }
 
 .date {

@@ -1,10 +1,19 @@
 <!--pages/dayplanhistory/dayplanhistory.wxml-->
+<view>
+  <!-- <text>计划时间</text> -->
+  <picker mode="date" fields='month' value="{{selectedDate}}" bindchange="bindDateChange">
+    <view class="picker">
+      {{selectedDate}}
+    </view>
+  </picker>
+</view>
+
 <view wx:for='{{dayPlanHistories}}' wx:for-item='dayPlanHistory' wx:key='date'>
-  <view class='dayPlanHistoryTag' bindtap='showDayPlans' data-index='{{index}}'>
+  <view class='dayPlanHistoryTag' bindtap='showDayPlans' data-date='{{dayPlanHistory.date}}'>
     <text class='date'>{{dayPlanHistory.date}}</text>
     <text class='num'>{{dayPlanHistory.completeNum}}/{{dayPlanHistory.totalNum}}</text>
   </view>
-  <view wx:for='{{dayPlanHistory.dayPlans}}' wx:for-item='dayPlan' wx:key='id' class='dayPlan {{dayPlan.status==1?"delLine":""}}'>
+  <view wx:if='{{dayPlanHistory.date == clickDate}}' wx:for='{{dayPlanHistory.dayPlans}}' wx:for-item='dayPlan' wx:key='id' class='dayPlan {{dayPlan.status==1?"delLine":""}}'>
     <view class='verticalLine'></view>
     <text>{{dayPlan.title}}</text>
   </view>

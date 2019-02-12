@@ -1,4 +1,5 @@
 // pages/dayplanhistory/dayplanhistory.js
+const date = require('../../utils/date.js')
 import {
   DayPlanModel
 } from '../../models/dayplan.js'
@@ -10,7 +11,10 @@ Page({
    * 页面的初始数据
    */
   data: {
-    dayPlanHistories: []
+    dayPlanHistories: [],
+    clickDate: '',
+    selectedDate: '',
+    timeStamp: ''
   },
 
   /**
@@ -32,6 +36,10 @@ Page({
    */
   onShow: function() {
     this.getDayPlanHistories()
+    let selectedDate = date.formatMillisToDate(new Date().getTime(), 'Y-M')
+    this.setData({
+      selectedDate: selectedDate
+    })
   },
 
   /**
@@ -79,6 +87,17 @@ Page({
     })
   },
   showDayPlans(e) {
-    console.log('showDayPlans: ', e)
+    console.log('e: ', e)
+    let clickDate = e.target.dataset.date
+    console.log('showDayPlans: ', clickDate)
+    this.setData({
+      clickDate: clickDate
+    })
+  },
+  bindDateChange(e) {
+    let selectedDate = e.detail.value
+    this.setData({
+      selectedDate: selectedDate
+    })
   }
 })
