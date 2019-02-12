@@ -54,6 +54,14 @@ class DayPlanModel extends HTTP {
       method: 'GET',
     })
   }
+
+  getSpecialMonthDayPlans(userId, timeStamp) {
+    let url = baseUrl + '/query/month?userId=' + userId + '&timeStamp=' + timeStamp
+    return this.request({
+      url: url,
+      method: 'GET',
+    })
+  }
 }
 
 export {
