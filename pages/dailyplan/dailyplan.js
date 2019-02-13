@@ -161,14 +161,15 @@ Page({
       this.showToastWithoutIcon('请输入重要程度')
       return false
     }
-    if (!reward) {
-      this.showToastWithoutIcon('请输入完成奖励')
-      return false
-    }
-    if (!punish) {
-      this.showToastWithoutIcon('请输入未完成惩罚')
-      return false
-    }
+    // 还没做通知，暂时隐藏
+    // if (!reward) {
+    //   this.showToastWithoutIcon('请输入完成奖励')
+    //   return false
+    // }
+    // if (!punish) {
+    //   this.showToastWithoutIcon('请输入未完成惩罚')
+    //   return false
+    // }
 
     return true
   },

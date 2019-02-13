@@ -19,14 +19,15 @@
       </view>
     </picker>
   </view>
-  <view class='section'>
+  <!-- 还没做通知，暂时隐藏 -->
+  <!-- <view class='section'>
     <text>完成奖励</text>
     <input value='{{reward}}' bindinput='inputReward' disabled='{{!isEdit ? true : false}}' />
   </view>
   <view class='section'>
     <text>未完成惩罚</text>
     <input value='{{punish}}' bindinput='inputPunish' disabled='{{!isEdit ? true : false}}' />
-  </view>
+  </view> -->
   <view class='section'>
     <text>重复周期</text>
     <picker bindchange="bindTypeChange" value="{{type}}" range="{{types}}" disabled='{{!isEdit ? true : false}}'>

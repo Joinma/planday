@@ -21,7 +21,7 @@ Page({
     reward: '',
     punish: '',
     isEdit: true,
-    levels: ['重要且必要', '重要', '选做']
+    levels: ['重要且必要', '重要', '一般']
   },
 
   /**
@@ -47,6 +47,13 @@ Page({
           punish: dayPlan.punish,
           isEdit: false
         })
+      })
+    } else {
+      let planTime = new Date().getTime()
+      let planDate = date.formatMillisToDate(planTime, 'Y-M-D')
+      this.setData({
+        planTime: planTime,
+        planDate: planDate
       })
     }
   },
@@ -177,14 +184,15 @@ Page({
       this.showToastWithoutIcon('请输入重要程度')
       return false
     }
-    if (!reward) {
-      this.showToastWithoutIcon('请输入完成奖励')
-      return false
-    }
-    if (!punish) {
-      this.showToastWithoutIcon('请输入未完成惩罚')
-      return false
-    }
+    // 还没做通知，暂时隐藏
+    // if (!reward) {
+    //   this.showToastWithoutIcon('请输入完成奖励')
+    //   return false
+    // }
+    // if (!punish) {
+    //   this.showToastWithoutIcon('请输入未完成惩罚')
+    //   return false
+    // }
 
     return true
   },
