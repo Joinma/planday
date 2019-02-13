@@ -1,0 +1,9 @@
+<!--components/search/index.wxml-->
+  <view class="container">
+    <view class="search-container">
+      <image class="icon" src="images/search.png" />
+      <input placeholder-class='in-bar' placeholder='类名' class='bar' bind:confirm="onConfirm" value="{{quesValue}}" auto-focus="true" />
+      <image bind:tap="onDelete" class="cancel-img" src="images/cancel.png" />
+    </view>
+    <view class='complete' bind:tap="onComplete">完成</view>
+  </view>

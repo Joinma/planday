@@ -1,0 +1,4 @@
+<!--pages/record/orderNote/orderNote.wxml-->
+<view class='header'>备注</view>
+<view class='date'>{{chooseDate}}</view>
+<textarea placeholder="记录生活的美好~" auto-focus="true" value="textValue" class='text' placeholder-class="placeholderText"></textarea>
