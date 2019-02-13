@@ -12,17 +12,15 @@
     <view class='usermotto'>这是一句很有道理的话</view>
   </view>
 </view>
-<view class='tagBackground'>
-  <view class='tag' bindtap='showCalendar'>
-    <text>日历</text>
-    <text>></text>
-  </view>
-  <view class='tag' bindtap='showDaliyPlans'>
-    <text>每日重复计划</text>
-    <text>></text>
-  </view>
-  <view class='tag' bindtap='showPlanHistories'>
-    <text>过往单日计划</text>
-    <text>></text>
-  </view>
+<view class='tag' bindtap='showCalendar'>
+  <text>日历</text>
+  <text>></text>
+</view>
+<view class='tag' bindtap='showDaliyPlans'>
+  <text>每日重复计划</text>
+  <text>></text>
+</view>
+<view class='tag' bindtap='showPlanHistories'>
+  <text>过往单日计划</text>
+  <text>></text>
 </view>

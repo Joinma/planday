@@ -12,7 +12,8 @@ Page({
     consumeCategories: [],
     pageTabNum: 10,
     isShowModal: false,
-    choosenType: 0
+    choosenType: 0,
+    current:0
   },
 
   /**
@@ -86,8 +87,9 @@ Page({
   changeType(e) {
     let type = e.currentTarget.dataset.type
     this.setData({
+      current:0,
       choosenType: type
     })
-    this.onLoad()
+    this.getUserConsumeCategoriesByType(this.data.choosenType)
   }
 })

@@ -1,5 +1,5 @@
 <!--components/orderTab/index.wxml-->
-<swiper class="iconContainer" interval="{{interval}}" indicator-dots circular indicator-active-color="#3271b0">
+<swiper class="iconContainer" interval="{{interval}}" indicator-dots circular indicator-active-color="#3271b0" current="{{current}}">
   <block wx:for="{{_newIconList}}" wx:for-item="tabItem" wx:key="{{index}}">
     <swiper-item data-id="{{item.id}}">
       <view class='iconInnerList'>

@@ -15,6 +15,10 @@ Component({
     pageNum: {
       type: Number,
       value: 10
+    },
+    current:{
+      type: Number,
+      value: 0
     }
   },
 
@@ -39,6 +43,7 @@ Component({
   },
   attached() {
     // deal with res data
+    console.log("currrr")
     this.resetResArray();
   },
   /**

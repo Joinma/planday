@@ -1,5 +1,9 @@
 /**index.wxss**/
 
+page {
+  background: #f5f5f5;
+}
+
 .container {
   height: 100%;
   display: flex;
@@ -52,14 +56,11 @@
   text-align: center;
 }
 
-.tagBackground {
-  background: rgb(211, 211, 211);
-}
-
 .tag {
-  line-height: 120rpx;
-  margin-top: 6rpx;
+  line-height: 100rpx;
   background: #fff;
+  margin: 15rpx 10rpx;
+  border-radius: 10rpx;
 }
 
 .tag > text {
