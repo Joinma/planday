@@ -21,6 +21,52 @@ Page({
   onLoad: function(options) {
     this.getUserConsumeCategoriesByType(this.data.choosenType)
   },
+  chooseDate() {
+    this.setData({
+      isShowModal: true
+    })
+  },
+  // 获取今天日期
+  getTodayDate(params) {
+    let year = params.detail.initYear
+    let month = params.detail.initMonth
+    this.setData({
+      year,
+      month,
+      date: '今天'
+    })
+  },
+  chooseCalenderDate(params) {
+    console.log("params", params.detail.date)
+    let date = params.detail.date
+    let month = this.data.month
+    date = `${month}月${date}日`
+    let self = this
+    this.setData({
+      date,
+    })
+    setTimeout(function() {
+      self.setData({
+        isShowModal: false
+      })
+    }, 300)
+  },
+  onchangeDate(params) {
+    let year = params.detail.newYear
+    let month = params.detail.newMonth
+    this.setData({
+      year,
+      month,
+    })
+  },
+  addOrderNote() {
+    let year = this.data.year
+    let date = this.data.date
+    let chooseDate = `${year}年 ${date}`
+    wx.navigateTo({
+      url: `./orderNote/orderNote?chooseDate=${chooseDate}`,
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

@@ -7,12 +7,13 @@
     "pages/dayplan/dayplan",
     "pages/dailyplan/dailyplan",
     "pages/dailyplanlist/dailyplanlist",
-    "pages/dayplanhistory/dayplanhistory"
+    "pages/dayplanhistory/dayplanhistory",
+    "pages/record/orderNote/orderNote"
   ],
   "window": {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#ffffff",
-    "navigationBarTitleText": "planday",
+    "navigationBarTitleText": "PocketPlan",
     "navigationBarTextStyle": "black"
   },
   "tabBar": {

@@ -4,7 +4,7 @@
   <view class='incomeBar {{choosenType==1?"choosenColor":""}}' bindtap='changeType' data-type='1'>收入</view>
 </view>
 <v-orderTab resIconList='{{consumeCategories}}' pageNum='{{pageTabNum}}'></v-orderTab>
-<v-numbox bind:ontapDate="tapDate"></v-numbox>
+<v-numbox bind:ontapDate="chooseDate" bind:onAddOrderNote="addOrderNote" year="{{year}}" date="{{date}}"></v-numbox>
 <v-btmModel showModal="{{isShowModal}}">
-  <v-calendar></v-calendar>
+  <v-calendar bind:initDate="getTodayDate" bind:onChooseDate="chooseCalenderDate" bind:changeDate="onchangeDate"></v-calendar>
 </v-btmModel>

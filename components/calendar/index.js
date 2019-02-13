@@ -115,6 +115,11 @@ Component({
       this.setData({
         _days
       });
+    },
+    tapDate(e){
+      console.log("子组件",e.currentTarget.dataset)
+      let date = e.currentTarget.dataset.date
+      this.triggerEvent('onChooseDate', {date})
     }
   }
 })

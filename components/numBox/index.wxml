@@ -10,7 +10,7 @@
       <view>{{year}}</view>
       <view>{{date}}</view>
     </view>
-    <image src='/images/editIcon.png' class='editIcon'></image>
+    <image src='/images/editIcon.png' class='editIcon' bindtap='addOrderNote'></image>
   </view>
   <view class='numberBox'>
     <button class='numberItem' data-index='1' bindtap='numberInput'>1</button>
