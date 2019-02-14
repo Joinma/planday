@@ -17,7 +17,7 @@
 }
 
 .dayPlanHistoryTag {
-  margin: 30rpx 10rpx 0rpx 10rpx;
+  margin: 0rpx 10rpx 30rpx 10rpx;
   line-height: 100rpx;
   color: #fff;
   border-radius: 10rpx;
